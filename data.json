@@ -1,0 +1,731 @@
+{
+  "meta": {
+    "brand": "x7peeps",
+    "title": "技能库",
+    "totalSkills": 1009,
+    "articleCount": 874,
+    "built": "2026-11-17"
+  },
+  "cats": [
+    { "id": "all", "no": "00", "name": "全部", "en": "ALL", "note": "按能力域浏览" },
+    { "id": "content", "no": "01", "name": "内容生产", "en": "CONTENT", "note": "一条链接或一个选题，走到能发布" },
+    { "id": "video", "no": "02", "name": "影视与视频", "en": "FILM", "note": "分镜、提示词、成片，全在本地跑" },
+    { "id": "security", "no": "03", "name": "安全与逆向", "en": "SECURITY", "note": "授权测试与防御建设用" },
+    { "id": "quant", "no": "04", "name": "量化与市场", "en": "QUANT", "note": "数据、回测、执行，能落到下单" },
+    { "id": "design", "no": "05", "name": "设计与前端", "en": "DESIGN", "note": "定方向、做界面、验画面" },
+    { "id": "game", "no": "06", "name": "游戏与 3D", "en": "GAME", "note": "玩法、资产、编码、上架" },
+    { "id": "music", "no": "07", "name": "音乐与声音", "en": "AUDIO", "note": "生成、混音、发布、配音" },
+    { "id": "agent", "no": "08", "name": "Agent 工程", "en": "AGENT", "note": "让 agent 自己跑起来的那一层" },
+    { "id": "write", "no": "09", "name": "知识与写作", "en": "WRITING", "note": "长文本、知识库、判断力" }
+  ],
+  "skills": [
+    {
+      "cat": "content",
+      "name": "抖音口播提取",
+      "en": "douyin-asr",
+      "desc": "贴一条抖音链接，输出文案描述、完整口播稿和关键词。断句、标点、音译错词都处理过。",
+      "tags": ["需 ffmpeg", "需 whisper"],
+      "wb": "抖音口播全文提取器",
+      "gh": null,
+      "site": "https://x7peeps.com/"
+    },
+    {
+      "cat": "content",
+      "name": "口播文案整理器",
+      "en": "speech-copy-polisher",
+      "desc": "把转写出来的乱稿整理成能直接发的文案，自动归并音译变体（同一产品名四种错拼算一个词）。零依赖。",
+      "tags": ["零依赖", "WorkBuddy 规范"],
+      "wb": "口播文案整理器",
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "content",
+      "name": "内容策展机",
+      "en": "auto-content-curator",
+      "desc": "一条链接进去：解析、拆结构、核实事实、出稿、归档。八步走完，不用人盯着。",
+      "tags": ["脚本链"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "content",
+      "name": "公众号产线",
+      "en": "wechat-article-pipeline",
+      "desc": "一个选题到公众号草稿箱加网站双发。标题、开头、配图、结尾各自有验收关。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/"
+    },
+    {
+      "cat": "content",
+      "name": "公众号编辑质量",
+      "en": "wechat-editorial-quality",
+      "desc": "把 AI 味的稿子改成人话：删空断言、补现场、引用紧跟判断，别让读者读三段才明白在说什么。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/"
+    },
+    {
+      "cat": "content",
+      "name": "小红书成稿",
+      "en": "xhs-post",
+      "desc": "零散灵感、素材、话术，整理成一篇成形的小红书帖子。结构、表达、延伸都管，编造事实不管。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "content",
+      "name": "爆款拆解",
+      "en": "xiaohongshu-bestseller",
+      "desc": "给一条爆款笔记，拆出它的结构、节奏和钩子，再换成你的题材写一遍。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "content",
+      "name": "炼丹炉六关",
+      "en": "tslj · 选题/开头/成稿/标题/系列/变现",
+      "desc": "把别人的爆款和自己的经历炼成一条能拍的视频。六关各自有判定：选题会招来谁、开头第一句说什么、标题为什么跟你有关。",
+      "tags": ["六个子技能"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "content",
+      "name": "抖音自动发布",
+      "en": "douyin-video-publishing",
+      "desc": "创作者中心自动上传发布。标题、话题、封面、必填项一次填完，登录态走本机浏览器。",
+      "tags": ["需登录态"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "content",
+      "name": "抖音图文排期",
+      "en": "douyin-image-post-scheduler",
+      "desc": "批量准备、上传、排期、发布后核验。适合把一组素材排成一周的更新。",
+      "tags": ["需登录态"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+
+    {
+      "cat": "video",
+      "name": "分镜导演",
+      "en": "ai-storyboard-director",
+      "desc": "先读懂剧情因果、人物目的和空间关系，再给镜头设计。不是把剧本按句切段配景别。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "video",
+      "name": "Seedance 提示词库",
+      "en": "seedance-prompt-library",
+      "desc": "验证过的视频提示词模板，按题材分：宠物、车、恐怖、运动、时装、DV 复古、3D 卡通。每条都能直接改。",
+      "tags": ["20+ 题材"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "video",
+      "name": "一句话到成片",
+      "en": "produce-ai-video",
+      "desc": "从通过的剧本或场景段落推进到成片素材：镜头、时长、转场、音画对齐。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "video",
+      "name": "音乐 MV 产线",
+      "en": "music-mv-v3",
+      "desc": "歌进去，出来一条卡点 MV：生图、图生视频、语义分镜、节拍卡点、特效字幕。",
+      "tags": ["需 4090"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "video",
+      "name": "代码动效片",
+      "en": "ruic-motion-reel",
+      "desc": "用代码渲 15 秒动态图形，1080p/30fps，自带超采样矢量、bloom、色差、颗粒。不开剪辑软件。",
+      "tags": ["自研渲染引擎"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "video",
+      "name": "代码即视频",
+      "en": "opus-code-video",
+      "desc": "让模型写代码生成特效片、产品片、知识动画。提示词库加工作流，不靠抽卡。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "video",
+      "name": "打戏提示词",
+      "en": "fight-scene-prompts",
+      "desc": "五槽法写武打：起手、接触、受力、失衡、收势。带节拍预算，能诊断成片为什么不像打架。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "video",
+      "name": "电影打光六法",
+      "en": "cinematic-light-directions",
+      "desc": "顶光、逆光、透光、底光、侧切、实景混合，六种打法各给提示词写法和失败样子。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "video",
+      "name": "场景动画产线",
+      "en": "scene-code-animation-pipeline",
+      "desc": "LLM 写 scene 函数，Playwright 逐帧渲染，ffmpeg 合成。零 GPU，跑在普通笔记本上。",
+      "tags": ["零 GPU"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+
+    {
+      "cat": "security",
+      "name": "内存马审计",
+      "en": "memshell-auditor",
+      "desc": "attach 进 JVM 找 Filter、Servlet、Listener、Valve、Agent 型内存马，dump 字节码、反编译、堆取证，特征库在线更新。",
+      "tags": ["开源", "JMG 载荷 7/7 检出"],
+      "wb": null,
+      "gh": "https://github.com/x7peeps/memshell-auditor",
+      "site": "https://x7peeps.com/安全/"
+    },
+    {
+      "cat": "security",
+      "name": "行为分析器",
+      "en": "behaviorscope",
+      "desc": "一条命令做完样本的静态、动态、取证、流量分析。纯本地离线，输出可直接提交的报告。",
+      "tags": ["开源", "离线"],
+      "wb": null,
+      "gh": "https://github.com/x7peeps/behaviorscope",
+      "site": "https://x7peeps.com/安全/"
+    },
+    {
+      "cat": "security",
+      "name": "逆向全家桶",
+      "en": "reverse-skill",
+      "desc": "89 个子技能的统一路由：APK、Mach-O、Go/Rust 剥离二进制、固件、内核、AD、云原生，按目标自动挂对应方法。",
+      "tags": ["89 子技能"],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/安全/"
+    },
+    {
+      "cat": "security",
+      "name": "SRC 猎人",
+      "en": "src-hunter",
+      "desc": "五阶段挖 SRC：资产测绘、漏洞假设、验证、影响定级、报告写法。不写「疑似存在」这种废话。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/安全/"
+    },
+    {
+      "cat": "security",
+      "name": "利用链工程",
+      "en": "pwn-chain",
+      "desc": "从逆向走到能跑的 exploit：偏移定位、泄漏、ROP、堆利用，覆盖现代 glibc 的 tcache 保护。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/安全/"
+    },
+    {
+      "cat": "security",
+      "name": "补丁差分",
+      "en": "patch-diff-exploit",
+      "desc": "从厂商补丁反推漏洞点，写 PoC，做成可用模块。N-day 的最短路径。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/安全/"
+    },
+    {
+      "cat": "security",
+      "name": "源码审计",
+      "en": "code-audit",
+      "desc": "SAST 加人工路径，覆盖 Java/Spring、Python Web、Node。先定位入口，再谈利用。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/安全/"
+    },
+    {
+      "cat": "security",
+      "name": "CTF 靶场编排",
+      "en": "ctf-sandbox-orchestrator",
+      "desc": "多题型靶场编排。web、pwn、逆向、取证、密码、区块链各自挂对应技能链，不混在一起。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/安全/"
+    },
+
+    {
+      "cat": "quant",
+      "name": "A 股数据层",
+      "en": "a-stock-data",
+      "desc": "行情、K 线（前后复权加分钟线）、研报、资金流、信号，一条命令拿全。通达信盘后包也能直读。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "quant",
+      "name": "交易系统",
+      "en": "a-share-quant-trading",
+      "desc": "策略、回测、模拟组合到同花顺自动下单。带风控红线：单票上限、当日回撤、异常即停。",
+      "tags": ["需券商环境"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "quant",
+      "name": "科学回测",
+      "en": "science-backtest-toolkit",
+      "desc": "过拟合检验、参数搜索、样本外验证、多市场对照。先证伪自己的策略，再谈收益。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "quant",
+      "name": "ETF 资金雷达",
+      "en": "etf-fund-flow-radar",
+      "desc": "净申赎和异动盯盘，接进看板。只做仓位倾斜，不越权改策略。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "quant",
+      "name": "行情 SDK",
+      "en": "gxquotes",
+      "desc": "日 K、分钟 K、实时分时，前后复权因子都提供。写策略时不用自己拼接口。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "quant",
+      "name": "盘前四问",
+      "en": "astock-report-decision-standard",
+      "desc": "复盘报告必须落到决策：买什么、什么价、错了怎么走。不写「关注池」这种不承担后果的话。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+
+    {
+      "cat": "design",
+      "name": "界面方向与评审",
+      "en": "oil-ui",
+      "desc": "九道闸门定方向：产品事实、主角、灰度结构、差异检验、真实截图评审。不到收敛不算完。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "design",
+      "name": "反 AI 味前端",
+      "en": "design-taste-frontend",
+      "desc": "一套能判定的规则，挡掉紫色渐变、发光卡片、emoji 标签、大写宽字距。落地页和产品页都适用。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "design",
+      "name": "交付闸门",
+      "en": "taste-gate",
+      "desc": "任何东西交出去前，作者先自己写三条具体缺陷：位置、现象、判据、修法。写完才知道哪里没做透。",
+      "tags": ["脚本"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "design",
+      "name": "视觉取证",
+      "en": "visual-quality-gate",
+      "desc": "截图怎么拍才不是假的：最小布局宽度、位图把旧文案烤进去、404 的破图图标。布局用数字验收，不靠眼睛。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "design",
+      "name": "精修指令集",
+      "en": "impeccable",
+      "desc": "23 条 polish、audit、critique、typeset、layout、animate 指令，带确定性检测器。",
+      "tags": ["23 指令"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "design",
+      "name": "架构图",
+      "en": "archify",
+      "desc": "架构、流程、时序、数据流、状态机。输出带校验的图，不是拿嘴描述架构。",
+      "tags": ["脚本"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "design",
+      "name": "横幅生成",
+      "en": "banner-design",
+      "desc": "社媒、广告、网站 hero 的横幅，多种画风可选，出图前先定信息层级。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+
+    {
+      "cat": "game",
+      "name": "狗生大梦",
+      "en": "dog-dream",
+      "desc": "给自家狗做的 Three.js 可玩世界，Tripo 生成资产，真机部署。已经能跑能看。",
+      "tags": ["开源", "可玩"],
+      "wb": null,
+      "gh": "https://github.com/x7peeps/dog-dream",
+      "site": "https://x7peeps.com/开源项目/"
+    },
+    {
+      "cat": "game",
+      "name": "网页 3D 动作游戏",
+      "en": "web3d-action-game",
+      "desc": "打击感、特效、性能预算、单文件打包。从玩法原型到能发出去的网页游戏。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "game",
+      "name": "游戏工作室",
+      "en": "game-studio-pipeline",
+      "desc": "玩法设计、生图、编码、预览调试、发布上架，全链路一条条拆开。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "game",
+      "name": "Scenario 全家桶",
+      "en": "scenario-game-studio",
+      "desc": "123 个技能覆盖出图、视频、3D、材质、骨骼动画、引擎对接。Unity、Unreal、Blender、Maya、ZBrush 都在里面。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "game",
+      "name": "图转 3D",
+      "en": "img2threejs",
+      "desc": "一张参考图变成可跑的 Three.js 场景：拆结构、估尺寸、给材质、写交互。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "game",
+      "name": "联机漂移赛车",
+      "en": "drift-race",
+      "desc": "五人实时漂移，道具、圈速、实拍车模。单文件零构建，打开就能联机。",
+      "tags": ["开源", "5 人联机"],
+      "wb": null,
+      "gh": "https://github.com/x7peeps/drift-race",
+      "site": "https://x7peeps.com/开源项目/"
+    },
+
+    {
+      "cat": "music",
+      "name": "本地音乐生成",
+      "en": "yue2-music",
+      "desc": "纯音乐、歌曲、cover，从写谱到混音一条链。YuE2 加 SheetSage2，跑在本地。",
+      "tags": ["本地模型"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "music",
+      "name": "Suno 自动化",
+      "en": "suno-browser-automation",
+      "desc": "驱动 suno.com 生成歌曲，走浏览器/CDP。绕开没有公开 API 的限制，含全部踩坑记录。",
+      "tags": ["需登录态"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "music",
+      "name": "每日音乐流",
+      "en": "music-daily-pipeline",
+      "desc": "热点、选题、歌词、生成、发布、品评，每天自动跑完一轮。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "music",
+      "name": "QQ 音乐人发布",
+      "en": "qq-music-publish-original",
+      "desc": "新歌或加歌到专辑，后台表单自动填。签约状态、可签池、独家转换的真实入口都记了。",
+      "tags": ["脚本", "需登录态"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "music",
+      "name": "配音",
+      "en": "dubbing",
+      "desc": "一段文案出配音，按情绪、语速、停连调。给视频、有声书、口播都行。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "music",
+      "name": "本地语音合成",
+      "en": "voicestudio",
+      "desc": "保存或设计音色，合成、转写、批量配音。全程不联网。",
+      "tags": ["本地"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "music",
+      "name": "实时语音对话",
+      "en": "realtime-voice-qwen-omni",
+      "desc": "全双工对话，能被打断的那种。语音进、语音出，不再等一句说完。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+
+    {
+      "cat": "agent",
+      "name": "循环天文台",
+      "en": "loop-observatory",
+      "desc": "69 个自主循环的可观测面板：谁在跑、跑到第几步、上次什么时候成功。桌面插件直接看。",
+      "tags": ["桌面插件"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "agent",
+      "name": "自循环",
+      "en": "self-running-loop",
+      "desc": "六步循环：SENSE、DECIDE、ACT、REVIEW、SHIP、LOOP。把日常推进从「等指令」变成「自己转」。",
+      "tags": ["脚本"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "agent",
+      "name": "等待循环",
+      "en": "waiting-loop",
+      "desc": "把等待任务从会话里摘出去，后台跑完自动回来。不用守着屏幕等构建。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "agent",
+      "name": "Agent 模式库",
+      "en": "ecc-patterns",
+      "desc": "从 274k 星项目提炼的 agent 工程模式：自主循环、多 agent 编排、持续学习、验证门、通信分诊。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "agent",
+      "name": "MBTI 编排",
+      "en": "mbti-agents",
+      "desc": "按人格分工：谁攻坚、谁执行、谁验收、谁对客户。派活前先想清楚，不然高价值脑力全花在搬砖上。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "agent",
+      "name": "值班驱动",
+      "en": "legion-duty-driver",
+      "desc": "九个 profile 乘四块板，定时喂任务。军团不空转，也不互相踩。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "agent",
+      "name": "浏览器自动化",
+      "en": "browser-skill",
+      "desc": "在有登录态的浏览器里读页面、点按钮、填表。不新开窗口打扰人，走 CDP 静默执行。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "agent",
+      "name": "桌面自动化",
+      "en": "desktop-ax-automation",
+      "desc": "走无障碍树而不是截图。点得准，也说得清为什么点这里。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "agent",
+      "name": "开源贡献产线",
+      "en": "github-pr-contributor-strategy",
+      "desc": "选题、写 PR、应对 review、跟进的完整打法。从批量止血转向能合进去的精品 PR。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+
+    {
+      "cat": "write",
+      "name": "第二大脑",
+      "en": "cob-vault",
+      "desc": "Obsidian 知识库：摄取带出处，查询只认证据，保存要先申请。不让模型悄悄改你的笔记。",
+      "tags": ["5 个子技能"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "write",
+      "name": "中文小说",
+      "en": "lengdu",
+      "desc": "先写好看，再由一个零继承的校准者挑问题：人物形成过程缺了什么、叙事是不是组织得太满。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "write",
+      "name": "游记式攻略",
+      "en": "travelogue-article-writing",
+      "desc": "体验叙事、真实原话、避重就轻，最后落回能用的攻略。非亲历的内容禁止第一人称。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": "https://x7peeps.com/阅读/"
+    },
+    {
+      "cat": "write",
+      "name": "恋爱军师",
+      "en": "goutoujunshi",
+      "desc": "聊天记录分析、关系信号、推进设计。暧昧、确认、冷战、复合各有各的打法。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "write",
+      "name": "人生决策",
+      "en": "life-decision-guide",
+      "desc": "该不该做、值不值、先做什么、出事了先干哪一步。用一本指南的正文回答，不灌鸡汤。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "write",
+      "name": "照片定位",
+      "en": "geo-sleuth",
+      "desc": "一张照片，先跑元数据、OCR、以图搜图，把线索和候选记到盘上，再逐步收窄到拍摄地点。",
+      "tags": ["脚本"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "write",
+      "name": "论文翻译",
+      "en": "pdf-translation-with-figures",
+      "desc": "英文论文转中文 PDF，图和译文数量强制对齐。少一张图不算完成。",
+      "tags": [],
+      "wb": null,
+      "gh": null,
+      "site": null
+    },
+    {
+      "cat": "write",
+      "name": "紫微斗数",
+      "en": "ziwei-doushu",
+      "desc": "本地排盘，不联网。四化、格局、大限流年，按盘说话。",
+      "tags": ["零联网"],
+      "wb": null,
+      "gh": null,
+      "site": null
+    }
+  ]
+}
