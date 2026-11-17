@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>技能库 · x7peeps — 70 个可安装的 AI Agent 技能</title>
-<meta name="description" content="x7peeps 技能库：1009 个 AI Agent 技能，覆盖内容生产、影视、安全、量化、设计、游戏、音乐。SKILL.md 标准格式，WorkBuddy / Claude Code / Codex / Hermes 通用。">
+<title>技能库 · x7peeps — 70 个精选 AI Agent 技能</title>
+<meta name="description" content="从 1009 个技能里精选 70 个：内容生产、影视、安全、量化、设计、游戏、音乐、Agent 工程、写作。SKILL.md 标准格式，WorkBuddy / Claude Code / Codex / Hermes 通用。">
 <meta name="theme-color" content="#F2EFE6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="技能库 · x7peeps">
@@ -30,7 +30,7 @@
   --pad:clamp(20px,4vw,40px);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
   font-size:var(--fs-body);line-height:1.6;-webkit-font-smoothing:antialiased;font-weight:400}
 a{color:inherit;text-decoration:none}
@@ -52,8 +52,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mast-nav a:hover{color:var(--ink);border-bottom-color:var(--ink)}
 .mast-dl{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 2px;
   font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.1em;text-transform:uppercase;
-  border-bottom:1px solid var(--ink);line-height:1}
-.mast-dl:hover{color:var(--signal);border-bottom-color:var(--signal)}
+  color:var(--ink-2);line-height:1}
+.mast-dl:hover{color:var(--signal)}
 
 /* hero */
 .hero{padding:clamp(36px,5vw,52px) 0 0;display:grid;
@@ -66,7 +66,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 h1{margin:0;font-size:clamp(62px,9vw,118px);font-weight:900;letter-spacing:-.045em;line-height:.86}
 .h1-en{display:block;font-family:var(--mono);font-size:var(--fs-micro);font-weight:400;letter-spacing:.4em;
   color:var(--ink-3);margin-top:9px;text-transform:uppercase}
-.lede{margin:20px 0 0;font-size:var(--fs-lede);line-height:1.7;color:var(--ink-2);max-width:42em}
+.lede{margin:20px 0 0;font-size:var(--fs-lede);line-height:1.7;color:var(--ink-2);max-width:42em;text-wrap:pretty}
 .lede b{color:var(--ink);font-weight:600;white-space:nowrap}
 .facts{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:4px;max-width:42em}
 .facts li{display:flex;gap:10px;font-size:var(--fs-body);color:var(--ink-2);line-height:1.45}
@@ -80,6 +80,8 @@ h1{margin:0;font-size:clamp(62px,9vw,118px);font-weight:900;letter-spacing:-.045
 .btn--p:hover{background:var(--signal);border-color:var(--signal)}
 .btn--s:hover{background:var(--ink);color:var(--paper)}
 .btn .ar{font-size:var(--fs-lede);line-height:1}
+.cta-note{margin:14px 0 0;font-size:var(--fs-body);line-height:1.6;color:var(--ink-3);max-width:34em}
+.cta-note b{color:var(--ink-2);font-weight:600}
 .hero::after{content:"";display:block;grid-column:1/-1;height:7px;margin-top:0;
   background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 13px);opacity:.55}
 
@@ -157,9 +159,10 @@ h1{margin:0;font-size:clamp(62px,9vw,118px);font-weight:900;letter-spacing:-.045
 .wbtoggle[aria-pressed="true"]{border-color:var(--wb);color:var(--wb);background:#EAF0F4}
 .wbtoggle[aria-pressed="true"] .dot{background:var(--wb)}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(286px,1fr));gap:1px;background:var(--rule);
-  border:1px solid var(--rule)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(286px,1fr));
+  border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
 .card{background:var(--paper);padding:18px 18px 15px;display:flex;flex-direction:column;min-height:186px;
+  border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
   transition:background .15s,color .15s}
 .card:hover{background:var(--ink);color:var(--paper)}
 .card-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
@@ -173,8 +176,8 @@ h1{margin:0;font-size:clamp(62px,9vw,118px);font-weight:900;letter-spacing:-.045
 .card-desc{margin:10px 0 14px;font-size:var(--fs-body);line-height:1.6;color:var(--ink-2);flex:1}
 .card:hover .card-desc{color:#C9C5B5}
 .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
-.chip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:var(--fs-micro);
-  letter-spacing:.05em;padding:4px 7px;border:1px solid var(--rule);color:var(--ink-3);
+.chip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:var(--fs-meta);
+  letter-spacing:.04em;padding:4px 7px;border:1px solid var(--rule);color:var(--ink-3);
   text-transform:uppercase;line-height:1.2;transition:border-color .15s,color .15s,background .15s}
 .chip .dot{width:4px;height:4px;background:currentColor;flex:0 0 auto}
 .chip--wb{color:var(--wb);border-color:#B9CDDC}
@@ -241,7 +244,9 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
   .layout{grid-template-columns:minmax(0,1fr)}
   .side{position:static;top:auto;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:14px}
   .side-h{display:none}
-  .nav-list{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .nav-list{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);
+    mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%)}
   .nav-list::-webkit-scrollbar{display:none}
   .nav-item{width:auto;border:1px solid var(--rule);padding:8px 10px;gap:6px;white-space:nowrap;flex:0 0 auto;min-height:44px}
   .nav-item:hover,.nav-item.is-on{padding-left:10px}
@@ -258,16 +263,25 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
   .card{min-height:0}
 }
 @media (max-width:560px){
+  .hero{padding-top:26px}
+  .hero-body{padding-bottom:12px}
   .grid{grid-template-columns:minmax(0,1fr)}
   .proofs{grid-template-columns:minmax(0,1fr)}
   .card{padding:16px}
-  h1{font-size:clamp(56px,16.5vw,84px)}
+  h1{font-size:clamp(54px,15.5vw,80px)}
+  .cta-note{margin-top:10px}
+  .facts{gap:3px}
+  .h1-en{display:none}
+  .eyebrow{margin-bottom:10px}
   .chip{padding:7px 9px}
   a.chip,button.chip{min-height:34px}
   .brand .sub{display:none}
   .mast-in{gap:12px}
   .search kbd{display:none}
   .wbtoggle{min-height:44px}
+  .toolbar{gap:8px}
+  .search{flex-basis:100%}
+  .tcount{margin-left:auto}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important;scroll-behavior:auto!important}
@@ -295,17 +309,18 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
     <div class="hero-body">
       <p class="eyebrow"><span class="sq"></span>X7PEEPS<span>/</span>一人公司技能栈<span>/</span>2026</p>
       <h1>技能库</h1>
-      <span class="h1-en">Skill Library</span>
-      <p class="lede">1009 个给 AI Agent 用的技能。内容、影视、安全、量化、设计、游戏、音乐——<b>每一个都在本机跑通过</b>，不是提示词收藏夹。</p>
+      <span class="h1-en">Skill Library · 70 Selected</span>
+      <p class="lede">全库 1009 个，这里挑了 70 个能装、能跑、说清依赖的。内容、影视、安全、量化、设计、游戏、音乐——<b>每一个都在本机跑通过</b>，不是提示词收藏夹。</p>
       <ul class="facts">
         <li><span><b>SKILL.md 标准格式</b>，WorkBuddy、Claude Code、Codex、Hermes 都能装</span></li>
         <li><span>每条都对得上一次<b>真实交付</b>：一篇发出去了的文章、一条上了线的片、一个跑着的系统</span></li>
         <li><span>页面<b>无登录、无弹窗</b>，不收集任何输入</span></li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn--p" href="https://www.workbuddy.cn/" target="_blank" rel="noopener">装 WorkBuddy，搜名字就能用 <span class="ar">↗</span></a>
+        <a class="btn btn--p" href="https://www.workbuddy.cn/" target="_blank" rel="noopener">装 WorkBuddy <span class="ar">↗</span></a>
         <a class="btn btn--s" href="#catalog">看全部技能 <span class="ar">↓</span></a>
       </div>
+      <p class="cta-note">市场里已提交 <b>2</b> 个（口播提取、文案整理），审核通过可直接搜到。其余 <b>68</b> 个还没上架，先复制名字或找我要 SKILL.md。</p>
     </div>
 
     <aside class="indexcard" aria-label="能力域索引">
@@ -328,7 +343,7 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
     <div class="sec-h">
       <span class="sec-no">§ 01</span>
       <h2 class="sec-t">目录</h2>
-      <span class="sec-note">selected / total</span>
+      <span class="sec-note">精选目录</span>
     </div>
     <div class="layout">
       <aside class="side">
@@ -361,490 +376,490 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
           <span class="tcount"><b id="n">0</b> / 70</span>
         </div>
         <div class="grid" id="grid">
-          <article class="card" data-cat="content" data-wb="1" data-name="抖音口播提取 douyin-asr 贴一条抖音链接，输出文案描述、完整口播稿和关键词。断句、标点、音译错词都处理过。">
+          <article class="card" data-cat="content" data-wb="1" data-name="抖音口播提取 douyin-asr 贴一条抖音链接，输出文案描述、完整口播稿和关键词。断句、标点、音译错词都处理过。 内容生产 需 ffmpeg 需 whisper">
   <div class="card-top"><span class="card-idx">01-01</span><span class="card-cat">CONTENT</span></div>
   <h3>抖音口播提取</h3>
   <p class="card-en">douyin-asr</p>
   <p class="card-desc">贴一条抖音链接，输出文案描述、完整口播稿和关键词。断句、标点、音译错词都处理过。</p>
   <div class="chips"><button class="chip chip--wb" data-copy="抖音口播全文提取器" data-kind="wb" type="button" title="复制技能名，在 WorkBuddy 技能市场搜索安装"><span class="dot"></span>WorkBuddy</button><a class="chip chip--site" href="https://x7peeps.com/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><span class="chip chip--tag">需 ffmpeg</span><span class="chip chip--tag">需 whisper</span><button class="chip chip--copy" data-copy="抖音口播提取" data-kind="name" type="button" aria-label="复制「抖音口播提取」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="1" data-name="口播文案整理器 speech-copy-polisher 把转写出来的乱稿整理成能直接发的文案，自动归并音译变体（同一产品名四种错拼算一个词）。零依赖。">
+<article class="card" data-cat="content" data-wb="1" data-name="口播文案整理器 speech-copy-polisher 把转写出来的乱稿整理成能直接发的文案，自动归并音译变体（同一产品名四种错拼算一个词）。零依赖。 内容生产 零依赖 WorkBuddy 规范">
   <div class="card-top"><span class="card-idx">01-02</span><span class="card-cat">CONTENT</span></div>
   <h3>口播文案整理器</h3>
   <p class="card-en">speech-copy-polisher</p>
   <p class="card-desc">把转写出来的乱稿整理成能直接发的文案，自动归并音译变体（同一产品名四种错拼算一个词）。零依赖。</p>
   <div class="chips"><button class="chip chip--wb" data-copy="口播文案整理器" data-kind="wb" type="button" title="复制技能名，在 WorkBuddy 技能市场搜索安装"><span class="dot"></span>WorkBuddy</button><span class="chip chip--tag">零依赖</span><span class="chip chip--tag">WorkBuddy 规范</span><button class="chip chip--copy" data-copy="口播文案整理器" data-kind="name" type="button" aria-label="复制「口播文案整理器」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="0" data-name="内容策展机 auto-content-curator 一条链接进去：解析、拆结构、核实事实、出稿、归档。八步走完，不用人盯着。">
+<article class="card" data-cat="content" data-wb="0" data-name="内容策展机 auto-content-curator 一条链接进去：解析、拆结构、核实事实、出稿、归档。八步走完，不用人盯着。 内容生产 脚本链">
   <div class="card-top"><span class="card-idx">01-03</span><span class="card-cat">CONTENT</span></div>
   <h3>内容策展机</h3>
   <p class="card-en">auto-content-curator</p>
   <p class="card-desc">一条链接进去：解析、拆结构、核实事实、出稿、归档。八步走完，不用人盯着。</p>
   <div class="chips"><span class="chip chip--tag">脚本链</span><button class="chip chip--copy" data-copy="内容策展机" data-kind="name" type="button" aria-label="复制「内容策展机」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="0" data-name="公众号产线 wechat-article-pipeline 一个选题到公众号草稿箱加网站双发。标题、开头、配图、结尾各自有验收关。">
+<article class="card" data-cat="content" data-wb="0" data-name="公众号产线 wechat-article-pipeline 一个选题到公众号草稿箱加网站双发。标题、开头、配图、结尾各自有验收关。 内容生产">
   <div class="card-top"><span class="card-idx">01-04</span><span class="card-cat">CONTENT</span></div>
   <h3>公众号产线</h3>
   <p class="card-en">wechat-article-pipeline</p>
   <p class="card-desc">一个选题到公众号草稿箱加网站双发。标题、开头、配图、结尾各自有验收关。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><button class="chip chip--copy" data-copy="公众号产线" data-kind="name" type="button" aria-label="复制「公众号产线」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="0" data-name="公众号编辑质量 wechat-editorial-quality 把 AI 味的稿子改成人话：删空断言、补现场、引用紧跟判断，别让读者读三段才明白在说什么。">
+<article class="card" data-cat="content" data-wb="0" data-name="公众号编辑质量 wechat-editorial-quality 把 AI 味的稿子改成人话：删空断言、补现场、引用紧跟判断，别让读者读三段才明白在说什么。 内容生产">
   <div class="card-top"><span class="card-idx">01-05</span><span class="card-cat">CONTENT</span></div>
   <h3>公众号编辑质量</h3>
   <p class="card-en">wechat-editorial-quality</p>
   <p class="card-desc">把 AI 味的稿子改成人话：删空断言、补现场、引用紧跟判断，别让读者读三段才明白在说什么。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><button class="chip chip--copy" data-copy="公众号编辑质量" data-kind="name" type="button" aria-label="复制「公众号编辑质量」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="0" data-name="小红书成稿 xhs-post 零散灵感、素材、话术，整理成一篇成形的小红书帖子。结构、表达、延伸都管，编造事实不管。">
+<article class="card" data-cat="content" data-wb="0" data-name="小红书成稿 xhs-post 零散灵感、素材、话术，整理成一篇成形的小红书帖子。结构、表达、延伸都管，编造事实不管。 内容生产">
   <div class="card-top"><span class="card-idx">01-06</span><span class="card-cat">CONTENT</span></div>
   <h3>小红书成稿</h3>
   <p class="card-en">xhs-post</p>
   <p class="card-desc">零散灵感、素材、话术，整理成一篇成形的小红书帖子。结构、表达、延伸都管，编造事实不管。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="小红书成稿" data-kind="name" type="button" aria-label="复制「小红书成稿」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="0" data-name="爆款拆解 xiaohongshu-bestseller 给一条爆款笔记，拆出它的结构、节奏和钩子，再换成你的题材写一遍。">
+<article class="card" data-cat="content" data-wb="0" data-name="爆款拆解 xiaohongshu-bestseller 给一条爆款笔记，拆出它的结构、节奏和钩子，再换成你的题材写一遍。 内容生产">
   <div class="card-top"><span class="card-idx">01-07</span><span class="card-cat">CONTENT</span></div>
   <h3>爆款拆解</h3>
   <p class="card-en">xiaohongshu-bestseller</p>
   <p class="card-desc">给一条爆款笔记，拆出它的结构、节奏和钩子，再换成你的题材写一遍。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="爆款拆解" data-kind="name" type="button" aria-label="复制「爆款拆解」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="0" data-name="炼丹炉六关 tslj · 选题/开头/成稿/标题/系列/变现 把别人的爆款和自己的经历炼成一条能拍的视频。六关各自有判定：选题会招来谁、开头第一句说什么、标题为什么跟你有关。">
+<article class="card" data-cat="content" data-wb="0" data-name="炼丹炉六关 tslj · 选题/开头/成稿/标题/系列/变现 把别人的爆款和自己的经历炼成一条能拍的视频。六关各自有判定：选题会招来谁、开头第一句说什么、标题为什么跟你有关。 内容生产 六个子技能">
   <div class="card-top"><span class="card-idx">01-08</span><span class="card-cat">CONTENT</span></div>
   <h3>炼丹炉六关</h3>
   <p class="card-en">tslj · 选题/开头/成稿/标题/系列/变现</p>
   <p class="card-desc">把别人的爆款和自己的经历炼成一条能拍的视频。六关各自有判定：选题会招来谁、开头第一句说什么、标题为什么跟你有关。</p>
   <div class="chips"><span class="chip chip--tag">六个子技能</span><button class="chip chip--copy" data-copy="炼丹炉六关" data-kind="name" type="button" aria-label="复制「炼丹炉六关」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="0" data-name="抖音自动发布 douyin-video-publishing 创作者中心自动上传发布。标题、话题、封面、必填项一次填完，登录态走本机浏览器。">
+<article class="card" data-cat="content" data-wb="0" data-name="抖音自动发布 douyin-video-publishing 创作者中心自动上传发布。标题、话题、封面、必填项一次填完，登录态走本机浏览器。 内容生产 需登录态">
   <div class="card-top"><span class="card-idx">01-09</span><span class="card-cat">CONTENT</span></div>
   <h3>抖音自动发布</h3>
   <p class="card-en">douyin-video-publishing</p>
   <p class="card-desc">创作者中心自动上传发布。标题、话题、封面、必填项一次填完，登录态走本机浏览器。</p>
   <div class="chips"><span class="chip chip--tag">需登录态</span><button class="chip chip--copy" data-copy="抖音自动发布" data-kind="name" type="button" aria-label="复制「抖音自动发布」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="content" data-wb="0" data-name="抖音图文排期 douyin-image-post-scheduler 批量准备、上传、排期、发布后核验。适合把一组素材排成一周的更新。">
+<article class="card" data-cat="content" data-wb="0" data-name="抖音图文排期 douyin-image-post-scheduler 批量准备、上传、排期、发布后核验。适合把一组素材排成一周的更新。 内容生产 需登录态">
   <div class="card-top"><span class="card-idx">01-10</span><span class="card-cat">CONTENT</span></div>
   <h3>抖音图文排期</h3>
   <p class="card-en">douyin-image-post-scheduler</p>
   <p class="card-desc">批量准备、上传、排期、发布后核验。适合把一组素材排成一周的更新。</p>
   <div class="chips"><span class="chip chip--tag">需登录态</span><button class="chip chip--copy" data-copy="抖音图文排期" data-kind="name" type="button" aria-label="复制「抖音图文排期」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="分镜导演 ai-storyboard-director 先读懂剧情因果、人物目的和空间关系，再给镜头设计。不是把剧本按句切段配景别。">
+<article class="card" data-cat="video" data-wb="0" data-name="分镜导演 ai-storyboard-director 先读懂剧情因果、人物目的和空间关系，再给镜头设计。不是把剧本按句切段配景别。 影视与视频">
   <div class="card-top"><span class="card-idx">02-01</span><span class="card-cat">FILM</span></div>
   <h3>分镜导演</h3>
   <p class="card-en">ai-storyboard-director</p>
   <p class="card-desc">先读懂剧情因果、人物目的和空间关系，再给镜头设计。不是把剧本按句切段配景别。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="分镜导演" data-kind="name" type="button" aria-label="复制「分镜导演」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="Seedance 提示词库 seedance-prompt-library 验证过的视频提示词模板，按题材分：宠物、车、恐怖、运动、时装、DV 复古、3D 卡通。每条都能直接改。">
+<article class="card" data-cat="video" data-wb="0" data-name="Seedance 提示词库 seedance-prompt-library 验证过的视频提示词模板，按题材分：宠物、车、恐怖、运动、时装、DV 复古、3D 卡通。每条都能直接改。 影视与视频 20+ 题材">
   <div class="card-top"><span class="card-idx">02-02</span><span class="card-cat">FILM</span></div>
   <h3>Seedance 提示词库</h3>
   <p class="card-en">seedance-prompt-library</p>
   <p class="card-desc">验证过的视频提示词模板，按题材分：宠物、车、恐怖、运动、时装、DV 复古、3D 卡通。每条都能直接改。</p>
   <div class="chips"><span class="chip chip--tag">20+ 题材</span><button class="chip chip--copy" data-copy="Seedance 提示词库" data-kind="name" type="button" aria-label="复制「Seedance 提示词库」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="一句话到成片 produce-ai-video 从通过的剧本或场景段落推进到成片素材：镜头、时长、转场、音画对齐。">
+<article class="card" data-cat="video" data-wb="0" data-name="一句话到成片 produce-ai-video 从通过的剧本或场景段落推进到成片素材：镜头、时长、转场、音画对齐。 影视与视频">
   <div class="card-top"><span class="card-idx">02-03</span><span class="card-cat">FILM</span></div>
   <h3>一句话到成片</h3>
   <p class="card-en">produce-ai-video</p>
   <p class="card-desc">从通过的剧本或场景段落推进到成片素材：镜头、时长、转场、音画对齐。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="一句话到成片" data-kind="name" type="button" aria-label="复制「一句话到成片」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="音乐 MV 产线 music-mv-v3 歌进去，出来一条卡点 MV：生图、图生视频、语义分镜、节拍卡点、特效字幕。">
+<article class="card" data-cat="video" data-wb="0" data-name="音乐 MV 产线 music-mv-v3 歌进去，出来一条卡点 MV：生图、图生视频、语义分镜、节拍卡点、特效字幕。 影视与视频 需 4090">
   <div class="card-top"><span class="card-idx">02-04</span><span class="card-cat">FILM</span></div>
   <h3>音乐 MV 产线</h3>
   <p class="card-en">music-mv-v3</p>
   <p class="card-desc">歌进去，出来一条卡点 MV：生图、图生视频、语义分镜、节拍卡点、特效字幕。</p>
   <div class="chips"><span class="chip chip--tag">需 4090</span><button class="chip chip--copy" data-copy="音乐 MV 产线" data-kind="name" type="button" aria-label="复制「音乐 MV 产线」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="代码动效片 ruic-motion-reel 用代码渲 15 秒动态图形，1080p/30fps，自带超采样矢量、bloom、色差、颗粒。不开剪辑软件。">
+<article class="card" data-cat="video" data-wb="0" data-name="代码动效片 ruic-motion-reel 用代码渲 15 秒动态图形，1080p/30fps，自带超采样矢量、bloom、色差、颗粒。不开剪辑软件。 影视与视频 自研渲染引擎">
   <div class="card-top"><span class="card-idx">02-05</span><span class="card-cat">FILM</span></div>
   <h3>代码动效片</h3>
   <p class="card-en">ruic-motion-reel</p>
   <p class="card-desc">用代码渲 15 秒动态图形，1080p/30fps，自带超采样矢量、bloom、色差、颗粒。不开剪辑软件。</p>
   <div class="chips"><span class="chip chip--tag">自研渲染引擎</span><button class="chip chip--copy" data-copy="代码动效片" data-kind="name" type="button" aria-label="复制「代码动效片」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="代码即视频 opus-code-video 让模型写代码生成特效片、产品片、知识动画。提示词库加工作流，不靠抽卡。">
+<article class="card" data-cat="video" data-wb="0" data-name="代码即视频 opus-code-video 让模型写代码生成特效片、产品片、知识动画。提示词库加工作流，不靠抽卡。 影视与视频">
   <div class="card-top"><span class="card-idx">02-06</span><span class="card-cat">FILM</span></div>
   <h3>代码即视频</h3>
   <p class="card-en">opus-code-video</p>
   <p class="card-desc">让模型写代码生成特效片、产品片、知识动画。提示词库加工作流，不靠抽卡。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="代码即视频" data-kind="name" type="button" aria-label="复制「代码即视频」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="打戏提示词 fight-scene-prompts 五槽法写武打：起手、接触、受力、失衡、收势。带节拍预算，能诊断成片为什么不像打架。">
+<article class="card" data-cat="video" data-wb="0" data-name="打戏提示词 fight-scene-prompts 五槽法写武打：起手、接触、受力、失衡、收势。带节拍预算，能诊断成片为什么不像打架。 影视与视频">
   <div class="card-top"><span class="card-idx">02-07</span><span class="card-cat">FILM</span></div>
   <h3>打戏提示词</h3>
   <p class="card-en">fight-scene-prompts</p>
   <p class="card-desc">五槽法写武打：起手、接触、受力、失衡、收势。带节拍预算，能诊断成片为什么不像打架。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="打戏提示词" data-kind="name" type="button" aria-label="复制「打戏提示词」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="电影打光六法 cinematic-light-directions 顶光、逆光、透光、底光、侧切、实景混合，六种打法各给提示词写法和失败样子。">
+<article class="card" data-cat="video" data-wb="0" data-name="电影打光六法 cinematic-light-directions 顶光、逆光、透光、底光、侧切、实景混合，六种打法各给提示词写法和失败样子。 影视与视频">
   <div class="card-top"><span class="card-idx">02-08</span><span class="card-cat">FILM</span></div>
   <h3>电影打光六法</h3>
   <p class="card-en">cinematic-light-directions</p>
   <p class="card-desc">顶光、逆光、透光、底光、侧切、实景混合，六种打法各给提示词写法和失败样子。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="电影打光六法" data-kind="name" type="button" aria-label="复制「电影打光六法」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="video" data-wb="0" data-name="场景动画产线 scene-code-animation-pipeline LLM 写 scene 函数，Playwright 逐帧渲染，ffmpeg 合成。零 GPU，跑在普通笔记本上。">
+<article class="card" data-cat="video" data-wb="0" data-name="场景动画产线 scene-code-animation-pipeline LLM 写 scene 函数，Playwright 逐帧渲染，ffmpeg 合成。零 GPU，跑在普通笔记本上。 影视与视频 零 GPU">
   <div class="card-top"><span class="card-idx">02-09</span><span class="card-cat">FILM</span></div>
   <h3>场景动画产线</h3>
   <p class="card-en">scene-code-animation-pipeline</p>
   <p class="card-desc">LLM 写 scene 函数，Playwright 逐帧渲染，ffmpeg 合成。零 GPU，跑在普通笔记本上。</p>
   <div class="chips"><span class="chip chip--tag">零 GPU</span><button class="chip chip--copy" data-copy="场景动画产线" data-kind="name" type="button" aria-label="复制「场景动画产线」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="security" data-wb="0" data-name="内存马审计 memshell-auditor attach 进 JVM 找 Filter、Servlet、Listener、Valve、Agent 型内存马，dump 字节码、反编译、堆取证，特征库在线更新。">
+<article class="card" data-cat="security" data-wb="0" data-name="内存马审计 memshell-auditor attach 进 JVM 找 Filter、Servlet、Listener、Valve、Agent 型内存马，dump 字节码、反编译、堆取证，特征库在线更新。 安全与逆向 开源 JMG 载荷 7/7 检出">
   <div class="card-top"><span class="card-idx">03-01</span><span class="card-cat">SECURITY</span></div>
   <h3>内存马审计</h3>
   <p class="card-en">memshell-auditor</p>
   <p class="card-desc">attach 进 JVM 找 Filter、Servlet、Listener、Valve、Agent 型内存马，dump 字节码、反编译、堆取证，特征库在线更新。</p>
   <div class="chips"><a class="chip chip--gh" href="https://github.com/x7peeps/memshell-auditor" target="_blank" rel="noopener"><span class="dot"></span>GitHub</a><a class="chip chip--site" href="https://x7peeps.com/安全/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><span class="chip chip--tag">开源</span><span class="chip chip--tag">JMG 载荷 7/7 检出</span><button class="chip chip--copy" data-copy="内存马审计" data-kind="name" type="button" aria-label="复制「内存马审计」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="security" data-wb="0" data-name="行为分析器 behaviorscope 一条命令做完样本的静态、动态、取证、流量分析。纯本地离线，输出可直接提交的报告。">
+<article class="card" data-cat="security" data-wb="0" data-name="行为分析器 behaviorscope 一条命令做完样本的静态、动态、取证、流量分析。纯本地离线，输出可直接提交的报告。 安全与逆向 开源 离线">
   <div class="card-top"><span class="card-idx">03-02</span><span class="card-cat">SECURITY</span></div>
   <h3>行为分析器</h3>
   <p class="card-en">behaviorscope</p>
   <p class="card-desc">一条命令做完样本的静态、动态、取证、流量分析。纯本地离线，输出可直接提交的报告。</p>
   <div class="chips"><a class="chip chip--gh" href="https://github.com/x7peeps/behaviorscope" target="_blank" rel="noopener"><span class="dot"></span>GitHub</a><a class="chip chip--site" href="https://x7peeps.com/安全/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><span class="chip chip--tag">开源</span><span class="chip chip--tag">离线</span><button class="chip chip--copy" data-copy="行为分析器" data-kind="name" type="button" aria-label="复制「行为分析器」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="security" data-wb="0" data-name="逆向全家桶 reverse-skill 89 个子技能的统一路由：APK、Mach-O、Go/Rust 剥离二进制、固件、内核、AD、云原生，按目标自动挂对应方法。">
+<article class="card" data-cat="security" data-wb="0" data-name="逆向全家桶 reverse-skill 89 个子技能的统一路由：APK、Mach-O、Go/Rust 剥离二进制、固件、内核、AD、云原生，按目标自动挂对应方法。 安全与逆向 89 子技能">
   <div class="card-top"><span class="card-idx">03-03</span><span class="card-cat">SECURITY</span></div>
   <h3>逆向全家桶</h3>
   <p class="card-en">reverse-skill</p>
   <p class="card-desc">89 个子技能的统一路由：APK、Mach-O、Go/Rust 剥离二进制、固件、内核、AD、云原生，按目标自动挂对应方法。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/安全/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><span class="chip chip--tag">89 子技能</span><button class="chip chip--copy" data-copy="逆向全家桶" data-kind="name" type="button" aria-label="复制「逆向全家桶」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="security" data-wb="0" data-name="SRC 猎人 src-hunter 五阶段挖 SRC：资产测绘、漏洞假设、验证、影响定级、报告写法。不写「疑似存在」这种废话。">
+<article class="card" data-cat="security" data-wb="0" data-name="SRC 猎人 src-hunter 五阶段挖 SRC：资产测绘、漏洞假设、验证、影响定级、报告写法。不写「疑似存在」这种废话。 安全与逆向">
   <div class="card-top"><span class="card-idx">03-04</span><span class="card-cat">SECURITY</span></div>
   <h3>SRC 猎人</h3>
   <p class="card-en">src-hunter</p>
   <p class="card-desc">五阶段挖 SRC：资产测绘、漏洞假设、验证、影响定级、报告写法。不写「疑似存在」这种废话。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/安全/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><button class="chip chip--copy" data-copy="SRC 猎人" data-kind="name" type="button" aria-label="复制「SRC 猎人」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="security" data-wb="0" data-name="利用链工程 pwn-chain 从逆向走到能跑的 exploit：偏移定位、泄漏、ROP、堆利用，覆盖现代 glibc 的 tcache 保护。">
+<article class="card" data-cat="security" data-wb="0" data-name="利用链工程 pwn-chain 从逆向走到能跑的 exploit：偏移定位、泄漏、ROP、堆利用，覆盖现代 glibc 的 tcache 保护。 安全与逆向">
   <div class="card-top"><span class="card-idx">03-05</span><span class="card-cat">SECURITY</span></div>
   <h3>利用链工程</h3>
   <p class="card-en">pwn-chain</p>
   <p class="card-desc">从逆向走到能跑的 exploit：偏移定位、泄漏、ROP、堆利用，覆盖现代 glibc 的 tcache 保护。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/安全/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><button class="chip chip--copy" data-copy="利用链工程" data-kind="name" type="button" aria-label="复制「利用链工程」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="security" data-wb="0" data-name="补丁差分 patch-diff-exploit 从厂商补丁反推漏洞点，写 PoC，做成可用模块。N-day 的最短路径。">
+<article class="card" data-cat="security" data-wb="0" data-name="补丁差分 patch-diff-exploit 从厂商补丁反推漏洞点，写 PoC，做成可用模块。N-day 的最短路径。 安全与逆向">
   <div class="card-top"><span class="card-idx">03-06</span><span class="card-cat">SECURITY</span></div>
   <h3>补丁差分</h3>
   <p class="card-en">patch-diff-exploit</p>
   <p class="card-desc">从厂商补丁反推漏洞点，写 PoC，做成可用模块。N-day 的最短路径。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/安全/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><button class="chip chip--copy" data-copy="补丁差分" data-kind="name" type="button" aria-label="复制「补丁差分」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="security" data-wb="0" data-name="源码审计 code-audit SAST 加人工路径，覆盖 Java/Spring、Python Web、Node。先定位入口，再谈利用。">
+<article class="card" data-cat="security" data-wb="0" data-name="源码审计 code-audit SAST 加人工路径，覆盖 Java/Spring、Python Web、Node。先定位入口，再谈利用。 安全与逆向">
   <div class="card-top"><span class="card-idx">03-07</span><span class="card-cat">SECURITY</span></div>
   <h3>源码审计</h3>
   <p class="card-en">code-audit</p>
   <p class="card-desc">SAST 加人工路径，覆盖 Java/Spring、Python Web、Node。先定位入口，再谈利用。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/安全/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><button class="chip chip--copy" data-copy="源码审计" data-kind="name" type="button" aria-label="复制「源码审计」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="security" data-wb="0" data-name="CTF 靶场编排 ctf-sandbox-orchestrator 多题型靶场编排。web、pwn、逆向、取证、密码、区块链各自挂对应技能链，不混在一起。">
+<article class="card" data-cat="security" data-wb="0" data-name="CTF 靶场编排 ctf-sandbox-orchestrator 多题型靶场编排。web、pwn、逆向、取证、密码、区块链各自挂对应技能链，不混在一起。 安全与逆向">
   <div class="card-top"><span class="card-idx">03-08</span><span class="card-cat">SECURITY</span></div>
   <h3>CTF 靶场编排</h3>
   <p class="card-en">ctf-sandbox-orchestrator</p>
   <p class="card-desc">多题型靶场编排。web、pwn、逆向、取证、密码、区块链各自挂对应技能链，不混在一起。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/安全/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><button class="chip chip--copy" data-copy="CTF 靶场编排" data-kind="name" type="button" aria-label="复制「CTF 靶场编排」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="quant" data-wb="0" data-name="A 股数据层 a-stock-data 行情、K 线（前后复权加分钟线）、研报、资金流、信号，一条命令拿全。通达信盘后包也能直读。">
+<article class="card" data-cat="quant" data-wb="0" data-name="A 股数据层 a-stock-data 行情、K 线（前后复权加分钟线）、研报、资金流、信号，一条命令拿全。通达信盘后包也能直读。 量化与市场">
   <div class="card-top"><span class="card-idx">04-01</span><span class="card-cat">QUANT</span></div>
   <h3>A 股数据层</h3>
   <p class="card-en">a-stock-data</p>
   <p class="card-desc">行情、K 线（前后复权加分钟线）、研报、资金流、信号，一条命令拿全。通达信盘后包也能直读。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="A 股数据层" data-kind="name" type="button" aria-label="复制「A 股数据层」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="quant" data-wb="0" data-name="交易系统 a-share-quant-trading 策略、回测、模拟组合到同花顺自动下单。带风控红线：单票上限、当日回撤、异常即停。">
+<article class="card" data-cat="quant" data-wb="0" data-name="交易系统 a-share-quant-trading 策略、回测、模拟组合到同花顺自动下单。带风控红线：单票上限、当日回撤、异常即停。 量化与市场 需券商环境">
   <div class="card-top"><span class="card-idx">04-02</span><span class="card-cat">QUANT</span></div>
   <h3>交易系统</h3>
   <p class="card-en">a-share-quant-trading</p>
   <p class="card-desc">策略、回测、模拟组合到同花顺自动下单。带风控红线：单票上限、当日回撤、异常即停。</p>
   <div class="chips"><span class="chip chip--tag">需券商环境</span><button class="chip chip--copy" data-copy="交易系统" data-kind="name" type="button" aria-label="复制「交易系统」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="quant" data-wb="0" data-name="科学回测 science-backtest-toolkit 过拟合检验、参数搜索、样本外验证、多市场对照。先证伪自己的策略，再谈收益。">
+<article class="card" data-cat="quant" data-wb="0" data-name="科学回测 science-backtest-toolkit 过拟合检验、参数搜索、样本外验证、多市场对照。先证伪自己的策略，再谈收益。 量化与市场">
   <div class="card-top"><span class="card-idx">04-03</span><span class="card-cat">QUANT</span></div>
   <h3>科学回测</h3>
   <p class="card-en">science-backtest-toolkit</p>
   <p class="card-desc">过拟合检验、参数搜索、样本外验证、多市场对照。先证伪自己的策略，再谈收益。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="科学回测" data-kind="name" type="button" aria-label="复制「科学回测」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="quant" data-wb="0" data-name="ETF 资金雷达 etf-fund-flow-radar 净申赎和异动盯盘，接进看板。只做仓位倾斜，不越权改策略。">
+<article class="card" data-cat="quant" data-wb="0" data-name="ETF 资金雷达 etf-fund-flow-radar 净申赎和异动盯盘，接进看板。只做仓位倾斜，不越权改策略。 量化与市场">
   <div class="card-top"><span class="card-idx">04-04</span><span class="card-cat">QUANT</span></div>
   <h3>ETF 资金雷达</h3>
   <p class="card-en">etf-fund-flow-radar</p>
   <p class="card-desc">净申赎和异动盯盘，接进看板。只做仓位倾斜，不越权改策略。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="ETF 资金雷达" data-kind="name" type="button" aria-label="复制「ETF 资金雷达」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="quant" data-wb="0" data-name="行情 SDK gxquotes 日 K、分钟 K、实时分时，前后复权因子都提供。写策略时不用自己拼接口。">
+<article class="card" data-cat="quant" data-wb="0" data-name="行情 SDK gxquotes 日 K、分钟 K、实时分时，前后复权因子都提供。写策略时不用自己拼接口。 量化与市场">
   <div class="card-top"><span class="card-idx">04-05</span><span class="card-cat">QUANT</span></div>
   <h3>行情 SDK</h3>
   <p class="card-en">gxquotes</p>
   <p class="card-desc">日 K、分钟 K、实时分时，前后复权因子都提供。写策略时不用自己拼接口。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="行情 SDK" data-kind="name" type="button" aria-label="复制「行情 SDK」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="quant" data-wb="0" data-name="盘前四问 astock-report-decision-standard 复盘报告必须落到决策：买什么、什么价、错了怎么走。不写「关注池」这种不承担后果的话。">
+<article class="card" data-cat="quant" data-wb="0" data-name="盘前四问 astock-report-decision-standard 复盘报告必须落到决策：买什么、什么价、错了怎么走。不写「关注池」这种不承担后果的话。 量化与市场">
   <div class="card-top"><span class="card-idx">04-06</span><span class="card-cat">QUANT</span></div>
   <h3>盘前四问</h3>
   <p class="card-en">astock-report-decision-standard</p>
   <p class="card-desc">复盘报告必须落到决策：买什么、什么价、错了怎么走。不写「关注池」这种不承担后果的话。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="盘前四问" data-kind="name" type="button" aria-label="复制「盘前四问」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="design" data-wb="0" data-name="界面方向与评审 oil-ui 九道闸门定方向：产品事实、主角、灰度结构、差异检验、真实截图评审。不到收敛不算完。">
+<article class="card" data-cat="design" data-wb="0" data-name="界面方向与评审 oil-ui 九道闸门定方向：产品事实、主角、灰度结构、差异检验、真实截图评审。不到收敛不算完。 设计与前端">
   <div class="card-top"><span class="card-idx">05-01</span><span class="card-cat">DESIGN</span></div>
   <h3>界面方向与评审</h3>
   <p class="card-en">oil-ui</p>
   <p class="card-desc">九道闸门定方向：产品事实、主角、灰度结构、差异检验、真实截图评审。不到收敛不算完。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="界面方向与评审" data-kind="name" type="button" aria-label="复制「界面方向与评审」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="design" data-wb="0" data-name="反 AI 味前端 design-taste-frontend 一套能判定的规则，挡掉紫色渐变、发光卡片、emoji 标签、大写宽字距。落地页和产品页都适用。">
+<article class="card" data-cat="design" data-wb="0" data-name="反 AI 味前端 design-taste-frontend 一套能判定的规则，挡掉紫色渐变、发光卡片、emoji 标签、大写宽字距。落地页和产品页都适用。 设计与前端">
   <div class="card-top"><span class="card-idx">05-02</span><span class="card-cat">DESIGN</span></div>
   <h3>反 AI 味前端</h3>
   <p class="card-en">design-taste-frontend</p>
   <p class="card-desc">一套能判定的规则，挡掉紫色渐变、发光卡片、emoji 标签、大写宽字距。落地页和产品页都适用。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="反 AI 味前端" data-kind="name" type="button" aria-label="复制「反 AI 味前端」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="design" data-wb="0" data-name="交付闸门 taste-gate 任何东西交出去前，作者先自己写三条具体缺陷：位置、现象、判据、修法。写完才知道哪里没做透。">
+<article class="card" data-cat="design" data-wb="0" data-name="交付闸门 taste-gate 任何东西交出去前，作者先自己写三条具体缺陷：位置、现象、判据、修法。写完才知道哪里没做透。 设计与前端 脚本">
   <div class="card-top"><span class="card-idx">05-03</span><span class="card-cat">DESIGN</span></div>
   <h3>交付闸门</h3>
   <p class="card-en">taste-gate</p>
   <p class="card-desc">任何东西交出去前，作者先自己写三条具体缺陷：位置、现象、判据、修法。写完才知道哪里没做透。</p>
   <div class="chips"><span class="chip chip--tag">脚本</span><button class="chip chip--copy" data-copy="交付闸门" data-kind="name" type="button" aria-label="复制「交付闸门」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="design" data-wb="0" data-name="视觉取证 visual-quality-gate 截图怎么拍才不是假的：最小布局宽度、位图把旧文案烤进去、404 的破图图标。布局用数字验收，不靠眼睛。">
+<article class="card" data-cat="design" data-wb="0" data-name="视觉取证 visual-quality-gate 截图怎么拍才不是假的：最小布局宽度、位图把旧文案烤进去、404 的破图图标。布局用数字验收，不靠眼睛。 设计与前端">
   <div class="card-top"><span class="card-idx">05-04</span><span class="card-cat">DESIGN</span></div>
   <h3>视觉取证</h3>
   <p class="card-en">visual-quality-gate</p>
   <p class="card-desc">截图怎么拍才不是假的：最小布局宽度、位图把旧文案烤进去、404 的破图图标。布局用数字验收，不靠眼睛。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="视觉取证" data-kind="name" type="button" aria-label="复制「视觉取证」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="design" data-wb="0" data-name="精修指令集 impeccable 23 条 polish、audit、critique、typeset、layout、animate 指令，带确定性检测器。">
+<article class="card" data-cat="design" data-wb="0" data-name="精修指令集 impeccable 23 条 polish、audit、critique、typeset、layout、animate 指令，带确定性检测器。 设计与前端 23 指令">
   <div class="card-top"><span class="card-idx">05-05</span><span class="card-cat">DESIGN</span></div>
   <h3>精修指令集</h3>
   <p class="card-en">impeccable</p>
   <p class="card-desc">23 条 polish、audit、critique、typeset、layout、animate 指令，带确定性检测器。</p>
   <div class="chips"><span class="chip chip--tag">23 指令</span><button class="chip chip--copy" data-copy="精修指令集" data-kind="name" type="button" aria-label="复制「精修指令集」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="design" data-wb="0" data-name="架构图 archify 架构、流程、时序、数据流、状态机。输出带校验的图，不是拿嘴描述架构。">
+<article class="card" data-cat="design" data-wb="0" data-name="架构图 archify 架构、流程、时序、数据流、状态机。输出带校验的图，不是拿嘴描述架构。 设计与前端 脚本">
   <div class="card-top"><span class="card-idx">05-06</span><span class="card-cat">DESIGN</span></div>
   <h3>架构图</h3>
   <p class="card-en">archify</p>
   <p class="card-desc">架构、流程、时序、数据流、状态机。输出带校验的图，不是拿嘴描述架构。</p>
   <div class="chips"><span class="chip chip--tag">脚本</span><button class="chip chip--copy" data-copy="架构图" data-kind="name" type="button" aria-label="复制「架构图」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="design" data-wb="0" data-name="横幅生成 banner-design 社媒、广告、网站 hero 的横幅，多种画风可选，出图前先定信息层级。">
+<article class="card" data-cat="design" data-wb="0" data-name="横幅生成 banner-design 社媒、广告、网站 hero 的横幅，多种画风可选，出图前先定信息层级。 设计与前端">
   <div class="card-top"><span class="card-idx">05-07</span><span class="card-cat">DESIGN</span></div>
   <h3>横幅生成</h3>
   <p class="card-en">banner-design</p>
   <p class="card-desc">社媒、广告、网站 hero 的横幅，多种画风可选，出图前先定信息层级。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="横幅生成" data-kind="name" type="button" aria-label="复制「横幅生成」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="game" data-wb="0" data-name="狗生大梦 dog-dream 给自家狗做的 Three.js 可玩世界，Tripo 生成资产，真机部署。已经能跑能看。">
+<article class="card" data-cat="game" data-wb="0" data-name="狗生大梦 dog-dream 给自家狗做的 Three.js 可玩世界，Tripo 生成资产，真机部署。已经能跑能看。 游戏与 3D 开源 可玩">
   <div class="card-top"><span class="card-idx">06-01</span><span class="card-cat">GAME</span></div>
   <h3>狗生大梦</h3>
   <p class="card-en">dog-dream</p>
   <p class="card-desc">给自家狗做的 Three.js 可玩世界，Tripo 生成资产，真机部署。已经能跑能看。</p>
   <div class="chips"><a class="chip chip--gh" href="https://github.com/x7peeps/dog-dream" target="_blank" rel="noopener"><span class="dot"></span>GitHub</a><a class="chip chip--site" href="https://x7peeps.com/开源项目/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><span class="chip chip--tag">开源</span><span class="chip chip--tag">可玩</span><button class="chip chip--copy" data-copy="狗生大梦" data-kind="name" type="button" aria-label="复制「狗生大梦」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="game" data-wb="0" data-name="网页 3D 动作游戏 web3d-action-game 打击感、特效、性能预算、单文件打包。从玩法原型到能发出去的网页游戏。">
+<article class="card" data-cat="game" data-wb="0" data-name="网页 3D 动作游戏 web3d-action-game 打击感、特效、性能预算、单文件打包。从玩法原型到能发出去的网页游戏。 游戏与 3D">
   <div class="card-top"><span class="card-idx">06-02</span><span class="card-cat">GAME</span></div>
   <h3>网页 3D 动作游戏</h3>
   <p class="card-en">web3d-action-game</p>
   <p class="card-desc">打击感、特效、性能预算、单文件打包。从玩法原型到能发出去的网页游戏。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="网页 3D 动作游戏" data-kind="name" type="button" aria-label="复制「网页 3D 动作游戏」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="game" data-wb="0" data-name="游戏工作室 game-studio-pipeline 玩法设计、生图、编码、预览调试、发布上架，全链路一条条拆开。">
+<article class="card" data-cat="game" data-wb="0" data-name="游戏工作室 game-studio-pipeline 玩法设计、生图、编码、预览调试、发布上架，全链路一条条拆开。 游戏与 3D">
   <div class="card-top"><span class="card-idx">06-03</span><span class="card-cat">GAME</span></div>
   <h3>游戏工作室</h3>
   <p class="card-en">game-studio-pipeline</p>
   <p class="card-desc">玩法设计、生图、编码、预览调试、发布上架，全链路一条条拆开。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="游戏工作室" data-kind="name" type="button" aria-label="复制「游戏工作室」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="game" data-wb="0" data-name="Scenario 全家桶 scenario-game-studio 123 个技能覆盖出图、视频、3D、材质、骨骼动画、引擎对接。Unity、Unreal、Blender、Maya、ZBrush 都在里面。">
+<article class="card" data-cat="game" data-wb="0" data-name="Scenario 全家桶 scenario-game-studio 123 个技能覆盖出图、视频、3D、材质、骨骼动画、引擎对接。Unity、Unreal、Blender、Maya、ZBrush 都在里面。 游戏与 3D">
   <div class="card-top"><span class="card-idx">06-04</span><span class="card-cat">GAME</span></div>
   <h3>Scenario 全家桶</h3>
   <p class="card-en">scenario-game-studio</p>
   <p class="card-desc">123 个技能覆盖出图、视频、3D、材质、骨骼动画、引擎对接。Unity、Unreal、Blender、Maya、ZBrush 都在里面。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="Scenario 全家桶" data-kind="name" type="button" aria-label="复制「Scenario 全家桶」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="game" data-wb="0" data-name="图转 3D img2threejs 一张参考图变成可跑的 Three.js 场景：拆结构、估尺寸、给材质、写交互。">
+<article class="card" data-cat="game" data-wb="0" data-name="图转 3D img2threejs 一张参考图变成可跑的 Three.js 场景：拆结构、估尺寸、给材质、写交互。 游戏与 3D">
   <div class="card-top"><span class="card-idx">06-05</span><span class="card-cat">GAME</span></div>
   <h3>图转 3D</h3>
   <p class="card-en">img2threejs</p>
   <p class="card-desc">一张参考图变成可跑的 Three.js 场景：拆结构、估尺寸、给材质、写交互。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="图转 3D" data-kind="name" type="button" aria-label="复制「图转 3D」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="game" data-wb="0" data-name="联机漂移赛车 drift-race 五人实时漂移，道具、圈速、实拍车模。单文件零构建，打开就能联机。">
+<article class="card" data-cat="game" data-wb="0" data-name="联机漂移赛车 drift-race 五人实时漂移，道具、圈速、实拍车模。单文件零构建，打开就能联机。 游戏与 3D 开源 5 人联机">
   <div class="card-top"><span class="card-idx">06-06</span><span class="card-cat">GAME</span></div>
   <h3>联机漂移赛车</h3>
   <p class="card-en">drift-race</p>
   <p class="card-desc">五人实时漂移，道具、圈速、实拍车模。单文件零构建，打开就能联机。</p>
   <div class="chips"><a class="chip chip--gh" href="https://github.com/x7peeps/drift-race" target="_blank" rel="noopener"><span class="dot"></span>GitHub</a><a class="chip chip--site" href="https://x7peeps.com/开源项目/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><span class="chip chip--tag">开源</span><span class="chip chip--tag">5 人联机</span><button class="chip chip--copy" data-copy="联机漂移赛车" data-kind="name" type="button" aria-label="复制「联机漂移赛车」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="music" data-wb="0" data-name="本地音乐生成 yue2-music 纯音乐、歌曲、cover，从写谱到混音一条链。YuE2 加 SheetSage2，跑在本地。">
+<article class="card" data-cat="music" data-wb="0" data-name="本地音乐生成 yue2-music 纯音乐、歌曲、cover，从写谱到混音一条链。YuE2 加 SheetSage2，跑在本地。 音乐与声音 本地模型">
   <div class="card-top"><span class="card-idx">07-01</span><span class="card-cat">AUDIO</span></div>
   <h3>本地音乐生成</h3>
   <p class="card-en">yue2-music</p>
   <p class="card-desc">纯音乐、歌曲、cover，从写谱到混音一条链。YuE2 加 SheetSage2，跑在本地。</p>
   <div class="chips"><span class="chip chip--tag">本地模型</span><button class="chip chip--copy" data-copy="本地音乐生成" data-kind="name" type="button" aria-label="复制「本地音乐生成」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="music" data-wb="0" data-name="Suno 自动化 suno-browser-automation 驱动 suno.com 生成歌曲，走浏览器/CDP。绕开没有公开 API 的限制，含全部踩坑记录。">
+<article class="card" data-cat="music" data-wb="0" data-name="Suno 自动化 suno-browser-automation 驱动 suno.com 生成歌曲，走浏览器/CDP。绕开没有公开 API 的限制，含全部踩坑记录。 音乐与声音 需登录态">
   <div class="card-top"><span class="card-idx">07-02</span><span class="card-cat">AUDIO</span></div>
   <h3>Suno 自动化</h3>
   <p class="card-en">suno-browser-automation</p>
   <p class="card-desc">驱动 suno.com 生成歌曲，走浏览器/CDP。绕开没有公开 API 的限制，含全部踩坑记录。</p>
   <div class="chips"><span class="chip chip--tag">需登录态</span><button class="chip chip--copy" data-copy="Suno 自动化" data-kind="name" type="button" aria-label="复制「Suno 自动化」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="music" data-wb="0" data-name="每日音乐流 music-daily-pipeline 热点、选题、歌词、生成、发布、品评，每天自动跑完一轮。">
+<article class="card" data-cat="music" data-wb="0" data-name="每日音乐流 music-daily-pipeline 热点、选题、歌词、生成、发布、品评，每天自动跑完一轮。 音乐与声音">
   <div class="card-top"><span class="card-idx">07-03</span><span class="card-cat">AUDIO</span></div>
   <h3>每日音乐流</h3>
   <p class="card-en">music-daily-pipeline</p>
   <p class="card-desc">热点、选题、歌词、生成、发布、品评，每天自动跑完一轮。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="每日音乐流" data-kind="name" type="button" aria-label="复制「每日音乐流」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="music" data-wb="0" data-name="QQ 音乐人发布 qq-music-publish-original 新歌或加歌到专辑，后台表单自动填。签约状态、可签池、独家转换的真实入口都记了。">
+<article class="card" data-cat="music" data-wb="0" data-name="QQ 音乐人发布 qq-music-publish-original 新歌或加歌到专辑，后台表单自动填。签约状态、可签池、独家转换的真实入口都记了。 音乐与声音 脚本 需登录态">
   <div class="card-top"><span class="card-idx">07-04</span><span class="card-cat">AUDIO</span></div>
   <h3>QQ 音乐人发布</h3>
   <p class="card-en">qq-music-publish-original</p>
   <p class="card-desc">新歌或加歌到专辑，后台表单自动填。签约状态、可签池、独家转换的真实入口都记了。</p>
   <div class="chips"><span class="chip chip--tag">脚本</span><span class="chip chip--tag">需登录态</span><button class="chip chip--copy" data-copy="QQ 音乐人发布" data-kind="name" type="button" aria-label="复制「QQ 音乐人发布」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="music" data-wb="0" data-name="配音 dubbing 一段文案出配音，按情绪、语速、停连调。给视频、有声书、口播都行。">
+<article class="card" data-cat="music" data-wb="0" data-name="配音 dubbing 一段文案出配音，按情绪、语速、停连调。给视频、有声书、口播都行。 音乐与声音">
   <div class="card-top"><span class="card-idx">07-05</span><span class="card-cat">AUDIO</span></div>
   <h3>配音</h3>
   <p class="card-en">dubbing</p>
   <p class="card-desc">一段文案出配音，按情绪、语速、停连调。给视频、有声书、口播都行。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="配音" data-kind="name" type="button" aria-label="复制「配音」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="music" data-wb="0" data-name="本地语音合成 voicestudio 保存或设计音色，合成、转写、批量配音。全程不联网。">
+<article class="card" data-cat="music" data-wb="0" data-name="本地语音合成 voicestudio 保存或设计音色，合成、转写、批量配音。全程不联网。 音乐与声音 本地">
   <div class="card-top"><span class="card-idx">07-06</span><span class="card-cat">AUDIO</span></div>
   <h3>本地语音合成</h3>
   <p class="card-en">voicestudio</p>
   <p class="card-desc">保存或设计音色，合成、转写、批量配音。全程不联网。</p>
   <div class="chips"><span class="chip chip--tag">本地</span><button class="chip chip--copy" data-copy="本地语音合成" data-kind="name" type="button" aria-label="复制「本地语音合成」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="music" data-wb="0" data-name="实时语音对话 realtime-voice-qwen-omni 全双工对话，能被打断的那种。语音进、语音出，不再等一句说完。">
+<article class="card" data-cat="music" data-wb="0" data-name="实时语音对话 realtime-voice-qwen-omni 全双工对话，能被打断的那种。语音进、语音出，不再等一句说完。 音乐与声音">
   <div class="card-top"><span class="card-idx">07-07</span><span class="card-cat">AUDIO</span></div>
   <h3>实时语音对话</h3>
   <p class="card-en">realtime-voice-qwen-omni</p>
   <p class="card-desc">全双工对话，能被打断的那种。语音进、语音出，不再等一句说完。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="实时语音对话" data-kind="name" type="button" aria-label="复制「实时语音对话」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="循环天文台 loop-observatory 69 个自主循环的可观测面板：谁在跑、跑到第几步、上次什么时候成功。桌面插件直接看。">
+<article class="card" data-cat="agent" data-wb="0" data-name="循环天文台 loop-observatory 69 个自主循环的可观测面板：谁在跑、跑到第几步、上次什么时候成功。桌面插件直接看。 Agent 工程 桌面插件">
   <div class="card-top"><span class="card-idx">08-01</span><span class="card-cat">AGENT</span></div>
   <h3>循环天文台</h3>
   <p class="card-en">loop-observatory</p>
   <p class="card-desc">69 个自主循环的可观测面板：谁在跑、跑到第几步、上次什么时候成功。桌面插件直接看。</p>
   <div class="chips"><span class="chip chip--tag">桌面插件</span><button class="chip chip--copy" data-copy="循环天文台" data-kind="name" type="button" aria-label="复制「循环天文台」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="自循环 self-running-loop 六步循环：SENSE、DECIDE、ACT、REVIEW、SHIP、LOOP。把日常推进从「等指令」变成「自己转」。">
+<article class="card" data-cat="agent" data-wb="0" data-name="自循环 self-running-loop 六步循环：SENSE、DECIDE、ACT、REVIEW、SHIP、LOOP。把日常推进从「等指令」变成「自己转」。 Agent 工程 脚本">
   <div class="card-top"><span class="card-idx">08-02</span><span class="card-cat">AGENT</span></div>
   <h3>自循环</h3>
   <p class="card-en">self-running-loop</p>
   <p class="card-desc">六步循环：SENSE、DECIDE、ACT、REVIEW、SHIP、LOOP。把日常推进从「等指令」变成「自己转」。</p>
   <div class="chips"><span class="chip chip--tag">脚本</span><button class="chip chip--copy" data-copy="自循环" data-kind="name" type="button" aria-label="复制「自循环」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="等待循环 waiting-loop 把等待任务从会话里摘出去，后台跑完自动回来。不用守着屏幕等构建。">
+<article class="card" data-cat="agent" data-wb="0" data-name="等待循环 waiting-loop 把等待任务从会话里摘出去，后台跑完自动回来。不用守着屏幕等构建。 Agent 工程">
   <div class="card-top"><span class="card-idx">08-03</span><span class="card-cat">AGENT</span></div>
   <h3>等待循环</h3>
   <p class="card-en">waiting-loop</p>
   <p class="card-desc">把等待任务从会话里摘出去，后台跑完自动回来。不用守着屏幕等构建。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="等待循环" data-kind="name" type="button" aria-label="复制「等待循环」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="Agent 模式库 ecc-patterns 从 274k 星项目提炼的 agent 工程模式：自主循环、多 agent 编排、持续学习、验证门、通信分诊。">
+<article class="card" data-cat="agent" data-wb="0" data-name="Agent 模式库 ecc-patterns 从 274k 星项目提炼的 agent 工程模式：自主循环、多 agent 编排、持续学习、验证门、通信分诊。 Agent 工程">
   <div class="card-top"><span class="card-idx">08-04</span><span class="card-cat">AGENT</span></div>
   <h3>Agent 模式库</h3>
   <p class="card-en">ecc-patterns</p>
   <p class="card-desc">从 274k 星项目提炼的 agent 工程模式：自主循环、多 agent 编排、持续学习、验证门、通信分诊。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="Agent 模式库" data-kind="name" type="button" aria-label="复制「Agent 模式库」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="MBTI 编排 mbti-agents 按人格分工：谁攻坚、谁执行、谁验收、谁对客户。派活前先想清楚，不然高价值脑力全花在搬砖上。">
+<article class="card" data-cat="agent" data-wb="0" data-name="MBTI 编排 mbti-agents 按人格分工：谁攻坚、谁执行、谁验收、谁对客户。派活前先想清楚，不然高价值脑力全花在搬砖上。 Agent 工程">
   <div class="card-top"><span class="card-idx">08-05</span><span class="card-cat">AGENT</span></div>
   <h3>MBTI 编排</h3>
   <p class="card-en">mbti-agents</p>
   <p class="card-desc">按人格分工：谁攻坚、谁执行、谁验收、谁对客户。派活前先想清楚，不然高价值脑力全花在搬砖上。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="MBTI 编排" data-kind="name" type="button" aria-label="复制「MBTI 编排」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="值班驱动 legion-duty-driver 九个 profile 乘四块板，定时喂任务。军团不空转，也不互相踩。">
+<article class="card" data-cat="agent" data-wb="0" data-name="值班驱动 legion-duty-driver 九个 profile 乘四块板，定时喂任务。军团不空转，也不互相踩。 Agent 工程">
   <div class="card-top"><span class="card-idx">08-06</span><span class="card-cat">AGENT</span></div>
   <h3>值班驱动</h3>
   <p class="card-en">legion-duty-driver</p>
   <p class="card-desc">九个 profile 乘四块板，定时喂任务。军团不空转，也不互相踩。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="值班驱动" data-kind="name" type="button" aria-label="复制「值班驱动」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="浏览器自动化 browser-skill 在有登录态的浏览器里读页面、点按钮、填表。不新开窗口打扰人，走 CDP 静默执行。">
+<article class="card" data-cat="agent" data-wb="0" data-name="浏览器自动化 browser-skill 在有登录态的浏览器里读页面、点按钮、填表。不新开窗口打扰人，走 CDP 静默执行。 Agent 工程">
   <div class="card-top"><span class="card-idx">08-07</span><span class="card-cat">AGENT</span></div>
   <h3>浏览器自动化</h3>
   <p class="card-en">browser-skill</p>
   <p class="card-desc">在有登录态的浏览器里读页面、点按钮、填表。不新开窗口打扰人，走 CDP 静默执行。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="浏览器自动化" data-kind="name" type="button" aria-label="复制「浏览器自动化」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="桌面自动化 desktop-ax-automation 走无障碍树而不是截图。点得准，也说得清为什么点这里。">
+<article class="card" data-cat="agent" data-wb="0" data-name="桌面自动化 desktop-ax-automation 走无障碍树而不是截图。点得准，也说得清为什么点这里。 Agent 工程">
   <div class="card-top"><span class="card-idx">08-08</span><span class="card-cat">AGENT</span></div>
   <h3>桌面自动化</h3>
   <p class="card-en">desktop-ax-automation</p>
   <p class="card-desc">走无障碍树而不是截图。点得准，也说得清为什么点这里。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="桌面自动化" data-kind="name" type="button" aria-label="复制「桌面自动化」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="agent" data-wb="0" data-name="开源贡献产线 github-pr-contributor-strategy 选题、写 PR、应对 review、跟进的完整打法。从批量止血转向能合进去的精品 PR。">
+<article class="card" data-cat="agent" data-wb="0" data-name="开源贡献产线 github-pr-contributor-strategy 选题、写 PR、应对 review、跟进的完整打法。从批量止血转向能合进去的精品 PR。 Agent 工程">
   <div class="card-top"><span class="card-idx">08-09</span><span class="card-cat">AGENT</span></div>
   <h3>开源贡献产线</h3>
   <p class="card-en">github-pr-contributor-strategy</p>
   <p class="card-desc">选题、写 PR、应对 review、跟进的完整打法。从批量止血转向能合进去的精品 PR。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="开源贡献产线" data-kind="name" type="button" aria-label="复制「开源贡献产线」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="write" data-wb="0" data-name="第二大脑 cob-vault Obsidian 知识库：摄取带出处，查询只认证据，保存要先申请。不让模型悄悄改你的笔记。">
+<article class="card" data-cat="write" data-wb="0" data-name="第二大脑 cob-vault Obsidian 知识库：摄取带出处，查询只认证据，保存要先申请。不让模型悄悄改你的笔记。 知识与写作 5 个子技能">
   <div class="card-top"><span class="card-idx">09-01</span><span class="card-cat">WRITING</span></div>
   <h3>第二大脑</h3>
   <p class="card-en">cob-vault</p>
   <p class="card-desc">Obsidian 知识库：摄取带出处，查询只认证据，保存要先申请。不让模型悄悄改你的笔记。</p>
   <div class="chips"><span class="chip chip--tag">5 个子技能</span><button class="chip chip--copy" data-copy="第二大脑" data-kind="name" type="button" aria-label="复制「第二大脑」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="write" data-wb="0" data-name="中文小说 lengdu 先写好看，再由一个零继承的校准者挑问题：人物形成过程缺了什么、叙事是不是组织得太满。">
+<article class="card" data-cat="write" data-wb="0" data-name="中文小说 lengdu 先写好看，再由一个零继承的校准者挑问题：人物形成过程缺了什么、叙事是不是组织得太满。 知识与写作">
   <div class="card-top"><span class="card-idx">09-02</span><span class="card-cat">WRITING</span></div>
   <h3>中文小说</h3>
   <p class="card-en">lengdu</p>
   <p class="card-desc">先写好看，再由一个零继承的校准者挑问题：人物形成过程缺了什么、叙事是不是组织得太满。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="中文小说" data-kind="name" type="button" aria-label="复制「中文小说」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="write" data-wb="0" data-name="游记式攻略 travelogue-article-writing 体验叙事、真实原话、避重就轻，最后落回能用的攻略。非亲历的内容禁止第一人称。">
+<article class="card" data-cat="write" data-wb="0" data-name="游记式攻略 travelogue-article-writing 体验叙事、真实原话、避重就轻，最后落回能用的攻略。非亲历的内容禁止第一人称。 知识与写作">
   <div class="card-top"><span class="card-idx">09-03</span><span class="card-cat">WRITING</span></div>
   <h3>游记式攻略</h3>
   <p class="card-en">travelogue-article-writing</p>
   <p class="card-desc">体验叙事、真实原话、避重就轻，最后落回能用的攻略。非亲历的内容禁止第一人称。</p>
   <div class="chips"><a class="chip chip--site" href="https://x7peeps.com/阅读/" target="_blank" rel="noopener"><span class="dot"></span>主站</a><button class="chip chip--copy" data-copy="游记式攻略" data-kind="name" type="button" aria-label="复制「游记式攻略」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="write" data-wb="0" data-name="恋爱军师 goutoujunshi 聊天记录分析、关系信号、推进设计。暧昧、确认、冷战、复合各有各的打法。">
+<article class="card" data-cat="write" data-wb="0" data-name="恋爱军师 goutoujunshi 聊天记录分析、关系信号、推进设计。暧昧、确认、冷战、复合各有各的打法。 知识与写作">
   <div class="card-top"><span class="card-idx">09-04</span><span class="card-cat">WRITING</span></div>
   <h3>恋爱军师</h3>
   <p class="card-en">goutoujunshi</p>
   <p class="card-desc">聊天记录分析、关系信号、推进设计。暧昧、确认、冷战、复合各有各的打法。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="恋爱军师" data-kind="name" type="button" aria-label="复制「恋爱军师」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="write" data-wb="0" data-name="人生决策 life-decision-guide 该不该做、值不值、先做什么、出事了先干哪一步。用一本指南的正文回答，不灌鸡汤。">
+<article class="card" data-cat="write" data-wb="0" data-name="人生决策 life-decision-guide 该不该做、值不值、先做什么、出事了先干哪一步。用一本指南的正文回答，不灌鸡汤。 知识与写作">
   <div class="card-top"><span class="card-idx">09-05</span><span class="card-cat">WRITING</span></div>
   <h3>人生决策</h3>
   <p class="card-en">life-decision-guide</p>
   <p class="card-desc">该不该做、值不值、先做什么、出事了先干哪一步。用一本指南的正文回答，不灌鸡汤。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="人生决策" data-kind="name" type="button" aria-label="复制「人生决策」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="write" data-wb="0" data-name="照片定位 geo-sleuth 一张照片，先跑元数据、OCR、以图搜图，把线索和候选记到盘上，再逐步收窄到拍摄地点。">
+<article class="card" data-cat="write" data-wb="0" data-name="照片定位 geo-sleuth 一张照片，先跑元数据、OCR、以图搜图，把线索和候选记到盘上，再逐步收窄到拍摄地点。 知识与写作 脚本">
   <div class="card-top"><span class="card-idx">09-06</span><span class="card-cat">WRITING</span></div>
   <h3>照片定位</h3>
   <p class="card-en">geo-sleuth</p>
   <p class="card-desc">一张照片，先跑元数据、OCR、以图搜图，把线索和候选记到盘上，再逐步收窄到拍摄地点。</p>
   <div class="chips"><span class="chip chip--tag">脚本</span><button class="chip chip--copy" data-copy="照片定位" data-kind="name" type="button" aria-label="复制「照片定位」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="write" data-wb="0" data-name="论文翻译 pdf-translation-with-figures 英文论文转中文 PDF，图和译文数量强制对齐。少一张图不算完成。">
+<article class="card" data-cat="write" data-wb="0" data-name="论文翻译 pdf-translation-with-figures 英文论文转中文 PDF，图和译文数量强制对齐。少一张图不算完成。 知识与写作">
   <div class="card-top"><span class="card-idx">09-07</span><span class="card-cat">WRITING</span></div>
   <h3>论文翻译</h3>
   <p class="card-en">pdf-translation-with-figures</p>
   <p class="card-desc">英文论文转中文 PDF，图和译文数量强制对齐。少一张图不算完成。</p>
   <div class="chips"><button class="chip chip--copy" data-copy="论文翻译" data-kind="name" type="button" aria-label="复制「论文翻译」的技能名">复制名</button></div>
 </article>
-<article class="card" data-cat="write" data-wb="0" data-name="紫微斗数 ziwei-doushu 本地排盘，不联网。四化、格局、大限流年，按盘说话。">
+<article class="card" data-cat="write" data-wb="0" data-name="紫微斗数 ziwei-doushu 本地排盘，不联网。四化、格局、大限流年，按盘说话。 知识与写作 零联网">
   <div class="card-top"><span class="card-idx">09-08</span><span class="card-cat">WRITING</span></div>
   <h3>紫微斗数</h3>
   <p class="card-en">ziwei-doushu</p>
@@ -864,7 +879,7 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
     <div class="sec-h">
       <span class="sec-no">§ 02</span>
       <h2 class="sec-t">在哪拿到</h2>
-      <span class="sec-note">three routes</span>
+      <span class="sec-note">三条路</span>
     </div>
     <div class="chans">
       <a class="chan" href="https://www.workbuddy.cn/" target="_blank" rel="noopener">
@@ -892,7 +907,7 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
     <div class="sec-h">
       <span class="sec-no">§ 03</span>
       <h2 class="sec-t">这些技能真出过东西</h2>
-      <span class="sec-note">shipped, not slides</span>
+      <span class="sec-note">上线的，不是 PPT</span>
     </div>
     <div class="proofs">
       <a class="proof" href="https://github.com/x7peeps/dog-dream" target="_blank" rel="noopener">
@@ -926,7 +941,7 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
     <div class="sec-h">
       <span class="sec-no">§ 04</span>
       <h2 class="sec-t">三步用上</h2>
-      <span class="sec-note">3 steps</span>
+      <span class="sec-note">三步</span>
     </div>
     <div class="how">
       <div class="step">
@@ -945,7 +960,7 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
         <p>不用记命令。说「把这条抖音的口播稿提出来」或者「帮我看看这个 jar 有没有内存马」，技能自己会接上。</p>
       </div>
     </div>
-    <p class="note"><b>关于上架进度：</b>已经按官方规范提交到 WorkBuddy 技能市场的是内容生产那一批——口播提取、文案整理。剩下六十多个能离线跑，但还没走完平台审核。想要哪个，公众号说一声，我按要的人多少排顺序。<b>不承诺搜得到，也不让你点空链接。</b></p>
+    <p class="note"><b>关于上架进度：</b>已经按官方规范提交到 WorkBuddy 技能市场的是内容生产那一批——口播提取、文案整理。其余的能离线跑，但还没走完平台审核。想要哪个，公众号说一声，我按要的人多少排顺序。<b>不承诺搜得到，也不让你点空链接。</b></p>
   </section>
 
 </main>
@@ -979,7 +994,7 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
 
 <script>
 (function(){
-  var grid=document.getElementById('grid'), cards=[].slice.call(grid.querySelectorAll('.card:not(.card--ghost)')),
+  var grid=document.getElementById('grid'), cards=[].slice.call(grid.querySelectorAll('.card')),
       q=document.getElementById('q'), nEl=document.getElementById('n'), empty=document.getElementById('empty'),
       navs=[].slice.call(document.querySelectorAll('[data-filter]')), cur='all',
       wbBtn=document.getElementById('wbtoggle'), onlyWb=false;
@@ -996,19 +1011,6 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
     nEl.textContent = shown;
     empty.classList.toggle('is-on', shown===0);
     grid.style.display = shown===0 ? 'none' : '';
-    ghosts();
-  }
-  function ghosts(){
-    [].slice.call(grid.querySelectorAll('.card--ghost')).forEach(function(g){ g.remove(); });
-    var vis = cards.filter(function(c){ return c.style.display!=='none'; });
-    if(!vis.length) return;
-    var cw = vis[0].getBoundingClientRect().width;
-    var cols = Math.max(1, Math.round((grid.clientWidth+1)/(cw+1)));
-    var rem = vis.length % cols;
-    for(var i=0; i<(rem ? cols-rem : 0); i++){
-      var g=document.createElement('div'); g.className='card card--ghost';
-      g.setAttribute('aria-hidden','true'); grid.appendChild(g);
-    }
   }
   function setCat(id){
     cur=id;
@@ -1022,7 +1024,7 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
     apply();
   });
   q.addEventListener('input', apply);
-  var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(ghosts,120); });
+  if(window.innerWidth <= 560){ q.placeholder = '搜技能或场景…'; }
   apply();
 
   var toast=document.getElementById('toast'), toastT=document.getElementById('toast-t'), tt;
@@ -1036,7 +1038,10 @@ footer{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:2
     document.body.removeChild(ta);
   }
   function copy(text, kind){
-    var done=function(){ show(kind==='wb' ? '已复制「'+text+'」· 到 WorkBuddy 技能市场搜索粘贴' : '已复制「'+text+'」'); };
+    var done=function(){
+      show(kind==='wb' ? '已复制「'+text+'」· 到 WorkBuddy 技能市场搜索粘贴'
+                       : '已复制「'+text+'」· 这个还没上架，去公众号说一声我优先排');
+    };
     if(navigator.clipboard && window.isSecureContext){
       navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text); done(); });
     } else { fallback(text); done(); }

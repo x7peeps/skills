@@ -33,7 +33,7 @@ def card(s):
         chips.append(f'<span class="chip chip--tag">{esc(t)}</span>')
     chips.append(f'<button class="chip chip--copy" data-copy="{esc(s["name"])}" data-kind="name" type="button" '
                  f'aria-label="复制「{esc(s["name"])}」的技能名">复制名</button>')
-    return f'''<article class="card" data-cat="{s["cat"]}" data-wb="{1 if s.get("wb") else 0}" data-name="{esc(s["name"] + " " + s["en"] + " " + s["desc"])}">
+    return f'''<article class="card" data-cat="{s["cat"]}" data-wb="{1 if s.get("wb") else 0}" data-name="{esc(" ".join([s["name"], s["en"], s["desc"], c["name"]] + s.get("tags", [])))}">
   <div class="card-top"><span class="card-idx">{idx}</span><span class="card-cat">{c["en"]}</span></div>
   <h3>{esc(s["name"])}</h3>
   <p class="card-en">{esc(s["en"])}</p>
@@ -92,6 +92,7 @@ proof_html = "\n".join(
 
 TOTAL = D["meta"]["totalSkills"]
 BUILT = D["meta"]["built"]
+WB_N = sum(1 for s in SK if s.get("wb"))
 
 HTML = f'''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -99,8 +100,8 @@ HTML = f'''<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>技能库 · x7peeps — {len(SK)} 个可安装的 AI Agent 技能</title>
-<meta name="description" content="x7peeps 技能库：{TOTAL} 个 AI Agent 技能，覆盖内容生产、影视、安全、量化、设计、游戏、音乐。SKILL.md 标准格式，WorkBuddy / Claude Code / Codex / Hermes 通用。">
+<title>技能库 · x7peeps — 70 个精选 AI Agent 技能</title>
+<meta name="description" content="从 1009 个技能里精选 70 个：内容生产、影视、安全、量化、设计、游戏、音乐、Agent 工程、写作。SKILL.md 标准格式，WorkBuddy / Claude Code / Codex / Hermes 通用。">
 <meta name="theme-color" content="#F2EFE6">
 <meta property="og:type" content="website">
 <meta property="og:title" content="技能库 · x7peeps">
@@ -125,7 +126,7 @@ HTML = f'''<!DOCTYPE html>
   --pad:clamp(20px,4vw,40px);
 }}
 *{{box-sizing:border-box}}
-html{{scroll-behavior:smooth}}
+html{{scroll-behavior:smooth;scroll-padding-top:72px}}
 body{{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
   font-size:var(--fs-body);line-height:1.6;-webkit-font-smoothing:antialiased;font-weight:400}}
 a{{color:inherit;text-decoration:none}}
@@ -147,8 +148,8 @@ button{{font:inherit;color:inherit;background:none;border:0;cursor:pointer}}
 .mast-nav a:hover{{color:var(--ink);border-bottom-color:var(--ink)}}
 .mast-dl{{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 2px;
   font-family:var(--mono);font-size:var(--fs-meta);letter-spacing:.1em;text-transform:uppercase;
-  border-bottom:1px solid var(--ink);line-height:1}}
-.mast-dl:hover{{color:var(--signal);border-bottom-color:var(--signal)}}
+  color:var(--ink-2);line-height:1}}
+.mast-dl:hover{{color:var(--signal)}}
 
 /* hero */
 .hero{{padding:clamp(36px,5vw,52px) 0 0;display:grid;
@@ -161,7 +162,7 @@ button{{font:inherit;color:inherit;background:none;border:0;cursor:pointer}}
 h1{{margin:0;font-size:clamp(62px,9vw,118px);font-weight:900;letter-spacing:-.045em;line-height:.86}}
 .h1-en{{display:block;font-family:var(--mono);font-size:var(--fs-micro);font-weight:400;letter-spacing:.4em;
   color:var(--ink-3);margin-top:9px;text-transform:uppercase}}
-.lede{{margin:20px 0 0;font-size:var(--fs-lede);line-height:1.7;color:var(--ink-2);max-width:42em}}
+.lede{{margin:20px 0 0;font-size:var(--fs-lede);line-height:1.7;color:var(--ink-2);max-width:42em;text-wrap:pretty}}
 .lede b{{color:var(--ink);font-weight:600;white-space:nowrap}}
 .facts{{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:4px;max-width:42em}}
 .facts li{{display:flex;gap:10px;font-size:var(--fs-body);color:var(--ink-2);line-height:1.45}}
@@ -175,6 +176,8 @@ h1{{margin:0;font-size:clamp(62px,9vw,118px);font-weight:900;letter-spacing:-.04
 .btn--p:hover{{background:var(--signal);border-color:var(--signal)}}
 .btn--s:hover{{background:var(--ink);color:var(--paper)}}
 .btn .ar{{font-size:var(--fs-lede);line-height:1}}
+.cta-note{{margin:14px 0 0;font-size:var(--fs-body);line-height:1.6;color:var(--ink-3);max-width:34em}}
+.cta-note b{{color:var(--ink-2);font-weight:600}}
 .hero::after{{content:"";display:block;grid-column:1/-1;height:7px;margin-top:0;
   background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 13px);opacity:.55}}
 
@@ -252,9 +255,10 @@ h1{{margin:0;font-size:clamp(62px,9vw,118px);font-weight:900;letter-spacing:-.04
 .wbtoggle[aria-pressed="true"]{{border-color:var(--wb);color:var(--wb);background:#EAF0F4}}
 .wbtoggle[aria-pressed="true"] .dot{{background:var(--wb)}}
 
-.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(286px,1fr));gap:1px;background:var(--rule);
-  border:1px solid var(--rule)}}
+.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(286px,1fr));
+  border-top:1px solid var(--rule);border-left:1px solid var(--rule)}}
 .card{{background:var(--paper);padding:18px 18px 15px;display:flex;flex-direction:column;min-height:186px;
+  border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
   transition:background .15s,color .15s}}
 .card:hover{{background:var(--ink);color:var(--paper)}}
 .card-top{{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}}
@@ -268,8 +272,8 @@ h1{{margin:0;font-size:clamp(62px,9vw,118px);font-weight:900;letter-spacing:-.04
 .card-desc{{margin:10px 0 14px;font-size:var(--fs-body);line-height:1.6;color:var(--ink-2);flex:1}}
 .card:hover .card-desc{{color:#C9C5B5}}
 .chips{{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}}
-.chip{{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:var(--fs-micro);
-  letter-spacing:.05em;padding:4px 7px;border:1px solid var(--rule);color:var(--ink-3);
+.chip{{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:var(--fs-meta);
+  letter-spacing:.04em;padding:4px 7px;border:1px solid var(--rule);color:var(--ink-3);
   text-transform:uppercase;line-height:1.2;transition:border-color .15s,color .15s,background .15s}}
 .chip .dot{{width:4px;height:4px;background:currentColor;flex:0 0 auto}}
 .chip--wb{{color:var(--wb);border-color:#B9CDDC}}
@@ -336,7 +340,9 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
   .layout{{grid-template-columns:minmax(0,1fr)}}
   .side{{position:static;top:auto;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:14px}}
   .side-h{{display:none}}
-  .nav-list{{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}}
+  .nav-list{{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%);
+    mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 22px),transparent 100%)}}
   .nav-list::-webkit-scrollbar{{display:none}}
   .nav-item{{width:auto;border:1px solid var(--rule);padding:8px 10px;gap:6px;white-space:nowrap;flex:0 0 auto;min-height:44px}}
   .nav-item:hover,.nav-item.is-on{{padding-left:10px}}
@@ -353,16 +359,25 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
   .card{{min-height:0}}
 }}
 @media (max-width:560px){{
+  .hero{{padding-top:26px}}
+  .hero-body{{padding-bottom:12px}}
   .grid{{grid-template-columns:minmax(0,1fr)}}
   .proofs{{grid-template-columns:minmax(0,1fr)}}
   .card{{padding:16px}}
-  h1{{font-size:clamp(56px,16.5vw,84px)}}
+  h1{{font-size:clamp(54px,15.5vw,80px)}}
+  .cta-note{{margin-top:10px}}
+  .facts{{gap:3px}}
+  .h1-en{{display:none}}
+  .eyebrow{{margin-bottom:10px}}
   .chip{{padding:7px 9px}}
   a.chip,button.chip{{min-height:34px}}
   .brand .sub{{display:none}}
   .mast-in{{gap:12px}}
   .search kbd{{display:none}}
   .wbtoggle{{min-height:44px}}
+  .toolbar{{gap:8px}}
+  .search{{flex-basis:100%}}
+  .tcount{{margin-left:auto}}
 }}
 @media (prefers-reduced-motion:reduce){{
   *{{transition:none!important;scroll-behavior:auto!important}}
@@ -390,17 +405,18 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
     <div class="hero-body">
       <p class="eyebrow"><span class="sq"></span>X7PEEPS<span>/</span>一人公司技能栈<span>/</span>2026</p>
       <h1>技能库</h1>
-      <span class="h1-en">Skill Library</span>
-      <p class="lede">{TOTAL} 个给 AI Agent 用的技能。内容、影视、安全、量化、设计、游戏、音乐——<b>每一个都在本机跑通过</b>，不是提示词收藏夹。</p>
+      <span class="h1-en">Skill Library · 70 Selected</span>
+      <p class="lede">全库 {TOTAL} 个，这里挑了 {len(SK)} 个能装、能跑、说清依赖的。内容、影视、安全、量化、设计、游戏、音乐——<b>每一个都在本机跑通过</b>，不是提示词收藏夹。</p>
       <ul class="facts">
         <li><span><b>SKILL.md 标准格式</b>，WorkBuddy、Claude Code、Codex、Hermes 都能装</span></li>
         <li><span>每条都对得上一次<b>真实交付</b>：一篇发出去了的文章、一条上了线的片、一个跑着的系统</span></li>
         <li><span>页面<b>无登录、无弹窗</b>，不收集任何输入</span></li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn--p" href="https://www.workbuddy.cn/" target="_blank" rel="noopener">装 WorkBuddy，搜名字就能用 <span class="ar">↗</span></a>
+        <a class="btn btn--p" href="https://www.workbuddy.cn/" target="_blank" rel="noopener">装 WorkBuddy <span class="ar">↗</span></a>
         <a class="btn btn--s" href="#catalog">看全部技能 <span class="ar">↓</span></a>
       </div>
+      <p class="cta-note">市场里已提交 <b>{WB_N}</b> 个（口播提取、文案整理），审核通过可直接搜到。其余 <b>{len(SK)-WB_N}</b> 个还没上架，先复制名字或找我要 SKILL.md。</p>
     </div>
 
     <aside class="indexcard" aria-label="能力域索引">
@@ -415,7 +431,7 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
     <div class="sec-h">
       <span class="sec-no">§ 01</span>
       <h2 class="sec-t">目录</h2>
-      <span class="sec-note">selected / total</span>
+      <span class="sec-note">精选目录</span>
     </div>
     <div class="layout">
       <aside class="side">
@@ -453,7 +469,7 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
     <div class="sec-h">
       <span class="sec-no">§ 02</span>
       <h2 class="sec-t">在哪拿到</h2>
-      <span class="sec-note">three routes</span>
+      <span class="sec-note">三条路</span>
     </div>
     <div class="chans">
       {chan_html}
@@ -464,7 +480,7 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
     <div class="sec-h">
       <span class="sec-no">§ 03</span>
       <h2 class="sec-t">这些技能真出过东西</h2>
-      <span class="sec-note">shipped, not slides</span>
+      <span class="sec-note">上线的，不是 PPT</span>
     </div>
     <div class="proofs">
       {proof_html}
@@ -475,7 +491,7 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
     <div class="sec-h">
       <span class="sec-no">§ 04</span>
       <h2 class="sec-t">三步用上</h2>
-      <span class="sec-note">3 steps</span>
+      <span class="sec-note">三步</span>
     </div>
     <div class="how">
       <div class="step">
@@ -494,7 +510,7 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
         <p>不用记命令。说「把这条抖音的口播稿提出来」或者「帮我看看这个 jar 有没有内存马」，技能自己会接上。</p>
       </div>
     </div>
-    <p class="note"><b>关于上架进度：</b>已经按官方规范提交到 WorkBuddy 技能市场的是内容生产那一批——口播提取、文案整理。剩下六十多个能离线跑，但还没走完平台审核。想要哪个，公众号说一声，我按要的人多少排顺序。<b>不承诺搜得到，也不让你点空链接。</b></p>
+    <p class="note"><b>关于上架进度：</b>已经按官方规范提交到 WorkBuddy 技能市场的是内容生产那一批——口播提取、文案整理。其余的能离线跑，但还没走完平台审核。想要哪个，公众号说一声，我按要的人多少排顺序。<b>不承诺搜得到，也不让你点空链接。</b></p>
   </section>
 
 </main>
@@ -528,7 +544,7 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
 
 <script>
 (function(){{
-  var grid=document.getElementById('grid'), cards=[].slice.call(grid.querySelectorAll('.card:not(.card--ghost)')),
+  var grid=document.getElementById('grid'), cards=[].slice.call(grid.querySelectorAll('.card')),
       q=document.getElementById('q'), nEl=document.getElementById('n'), empty=document.getElementById('empty'),
       navs=[].slice.call(document.querySelectorAll('[data-filter]')), cur='all',
       wbBtn=document.getElementById('wbtoggle'), onlyWb=false;
@@ -545,19 +561,6 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
     nEl.textContent = shown;
     empty.classList.toggle('is-on', shown===0);
     grid.style.display = shown===0 ? 'none' : '';
-    ghosts();
-  }}
-  function ghosts(){{
-    [].slice.call(grid.querySelectorAll('.card--ghost')).forEach(function(g){{ g.remove(); }});
-    var vis = cards.filter(function(c){{ return c.style.display!=='none'; }});
-    if(!vis.length) return;
-    var cw = vis[0].getBoundingClientRect().width;
-    var cols = Math.max(1, Math.round((grid.clientWidth+1)/(cw+1)));
-    var rem = vis.length % cols;
-    for(var i=0; i<(rem ? cols-rem : 0); i++){{
-      var g=document.createElement('div'); g.className='card card--ghost';
-      g.setAttribute('aria-hidden','true'); grid.appendChild(g);
-    }}
   }}
   function setCat(id){{
     cur=id;
@@ -571,7 +574,7 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
     apply();
   }});
   q.addEventListener('input', apply);
-  var rt; window.addEventListener('resize', function(){{ clearTimeout(rt); rt=setTimeout(ghosts,120); }});
+  if(window.innerWidth <= 560){{ q.placeholder = '搜技能或场景…'; }}
   apply();
 
   var toast=document.getElementById('toast'), toastT=document.getElementById('toast-t'), tt;
@@ -585,7 +588,10 @@ footer{{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--ink);padding:
     document.body.removeChild(ta);
   }}
   function copy(text, kind){{
-    var done=function(){{ show(kind==='wb' ? '已复制「'+text+'」· 到 WorkBuddy 技能市场搜索粘贴' : '已复制「'+text+'」'); }};
+    var done=function(){{
+      show(kind==='wb' ? '已复制「'+text+'」· 到 WorkBuddy 技能市场搜索粘贴'
+                       : '已复制「'+text+'」· 这个还没上架，去公众号说一声我优先排');
+    }};
     if(navigator.clipboard && window.isSecureContext){{
       navigator.clipboard.writeText(text).then(done).catch(function(){{ fallback(text); done(); }});
     }} else {{ fallback(text); done(); }}
